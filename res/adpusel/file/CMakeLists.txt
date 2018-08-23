@@ -3,8 +3,7 @@ project(Corwar_lib)
 set(HEADER_FILES
         includes/asm.h
         includes/ft_asm_header.h
-        includes/function.h
-        includes/op.h
+#        includes/op.h
         includes/struct.h
         )
 

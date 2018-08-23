@@ -20,7 +20,7 @@ set(CMAKE_C_STANDARD 99)
 add_executable(
         Corewar_run
         main.c
-        file/includes/op.h)
+)
 #*------------------------------------*\
 #    --  PATH  --
 #*------------------------------------*/
