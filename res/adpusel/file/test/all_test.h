@@ -11,12 +11,13 @@
 
 extern int tests_run;
 
+#define STR_EQ (str_1, str_2)  ft_strcmp(str_1, str_2)
+
 # include "../includes/ft_asm_header.h"
 
 /*
 **    function
 */
-char *test_label();
-
+char *all_label_test();
 
 #endif //CORWAR_GROUPE_TEST_H

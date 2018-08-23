@@ -6,7 +6,7 @@ int tests_run = 0;
 int all_test()
 {
 
-	char *result = test_label();
+	char *result = all_label_test();
 
 	if (result != 0)
 	{
