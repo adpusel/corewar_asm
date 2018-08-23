@@ -17,7 +17,6 @@
 **    vendor
 */
 # include "asm.h"
-# include "function.h"
 # include "struct.h"
 # include "ft_library_headerd.h"
 
@@ -26,6 +25,6 @@
 */
 # include "struct.h"
 # include "asm.h"
-# include "function.h"
+# include "a_function.h"
 
 #endif

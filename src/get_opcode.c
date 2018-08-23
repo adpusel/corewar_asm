@@ -87,12 +87,10 @@ int name_comment(t_parser *parser)
 
 void asm_clean(char **string_ptr)
 {
-	char *string;
 
-	string = *string_ptr;
-	while (check_char_into_str(*string, SKIP_ASM_CHAR) == TRUE)
+	while (check_char_into_str(**string_ptr, SKIP_ASM_CHAR) == TRUE)
 	{
-		++string;
+		++(*string_ptr);
 	}
 }
 
@@ -118,7 +116,7 @@ int is_good_label(char *string)
  * @param string
  * @return
  */
-char *start_by_labelle(char **string)
+char *start_by_label(char **string)
 {
 	size_t ret;
 	char *out;
@@ -135,10 +133,10 @@ char *start_by_labelle(char **string)
 		return (NULL);
 }
 
-int     parse_label()
-{
-
-}
+//int     parse_label()
+//{
+//
+//}
 
 int parse_line(const char *line_ptr)
 {
@@ -147,9 +145,11 @@ int parse_line(const char *line_ptr)
 
 	line = (char *)line_ptr;
 
-	label = start_by_labelle(&line);
+	label = start_by_label(&line);
 	// label --> fonction pour le handle
-	// fonction pour check le reter de la lis
+	// fonction pour check le peter
+	// function
+	//fasfa;sdjf
 
 	return (TRUE);
 }

@@ -15,6 +15,9 @@
 
 # include "op.h"
 # include "../../libft/header/struct/dll_struct.h"
+#include "struct.h"
+
+extern t_op g_op_tab[17];
 
 /*
 **    DEFINE ========================================================
