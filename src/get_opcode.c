@@ -147,7 +147,7 @@ int parse_line(const char *line_ptr)
 
 	line = (char *)line_ptr;
 
-	label = start_by_label(&line);
+	label = start_by_labelle(&line);
 	// label --> fonction pour le handle
 	// fonction pour check le reter de la lis
 
