@@ -6,32 +6,23 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/23 13:13:18 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/22 16:15:58 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ASM_H
-# define ASM_H
-
-# include "op.h"
-# include "../../libft/header/struct/dll_struct.h"
+#define ASM_H
 
 /*
 **    DEFINE ========================================================
 */
-# define ARG -2
-# define SUCCESS 0
-# define OP_TAB_SIZE 17
-# define SKIP_ASM_CHAR " \t"
 
-/*
-**    ERROR ========================================================
-*/
+#include <libft/include/struct/dll_struct.h>
 
-# define ERROR_MALLOC		-2
-# define ERROR_ARG			-3
-# define ERROR_FD			-4
-# define ERROR_FILE_NAME	-5
+#define ARG -2
+#define SUCCESS 0
+#define OP_TAB_SIZE 17
+#define SKIP_ASM_CHAR " \t"
 
 typedef struct		s_file
 {
