@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 13:49:15 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/22 14:32:19 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/23 14:31:02 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int		main(int argc, char *argv[])
 
 	env = &tmp;
 	if (argc != 2 && !(env->file->name = ++argv))
-		error(-1);
-	env->file_name = 
+		handle_error(env, ERROR_USAGE);
+	env->file_name = argv;
 	check_file(env);
+	parse_file(env);
 }

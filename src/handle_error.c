@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:18:32 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/23 12:44:47 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/23 14:33:20 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void		handle_error(t_asm *env, int err_code)
 		ft_putendl_fd("fd", 2);
 	else if (err_code == ERROR_FILE_NAME)
 		ft_putendl_fd("file name", 2);
+	exit(FAILURE);
 }
