@@ -1,24 +1,22 @@
 #include "all_test.h"
 
-int foo = 9;
-
-int bar = 4;
+char *label = "label";
 
 static char *return_good_label()
 {
-	char *line = "lala:";
+	char *line = "label:";
 	char *ret;
 
 	ret = start_by_label(&line);
 
-	TEST("error if not same label", ft_strcmp(ret, line));
+	TEST("error --> get label", STR_EQ(ret, label));
+	printf("%s \n", ret);
 	return 0;
 }
 
 static char *test_bar()
 {
-	TEST("error --> bar != 5", bar == 4);
-	return 0;
+	return (NULL);
 }
 
 char *all_label_test()

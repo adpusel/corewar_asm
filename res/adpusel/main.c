@@ -3,7 +3,8 @@
 
 int main()
 {
+	static char ok[5] = {COMMENT_CHAR, LABEL_CHAR};
 	all_test();
-	printf("Hello, World!\n");
+	printf("%s \n",ok);
 	return 0;
 }
