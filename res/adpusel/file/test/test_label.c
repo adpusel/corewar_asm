@@ -1,4 +1,4 @@
-#include "../includes/all_test.h"
+#include "all_test.h"
 
 int foo = 9;
 

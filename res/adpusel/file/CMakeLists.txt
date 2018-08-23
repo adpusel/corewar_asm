@@ -1,6 +1,6 @@
 project(Corwar_lib)
 
-set(GLOB HEADER_FILES
+set(HEADER_FILES
         includes/asm.h
         includes/ft_asm_header.h
         includes/function.h
@@ -21,6 +21,6 @@ set(TEST_FILES
         )
 
 
-add_library(Corwar_lib STATIC ${SOURCE_FILES} ${HEADER_FILES})
+add_library(Corwar_lib STATIC ${SOURCE_FILES} ${HEADER_FILES} ${TEST_FILES})
 
 target_link_libraries(Corwar_lib libft)
