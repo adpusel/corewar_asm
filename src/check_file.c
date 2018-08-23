@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm.h"
+#include "../includes/ft_asm_header.h"
 
 static void	check_extension(char *file_name)
 {

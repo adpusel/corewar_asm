@@ -113,6 +113,11 @@ int is_good_label(char *string)
 		return (FALSE);
 }
 
+/**
+ *
+ * @param string
+ * @return
+ */
 char *start_by_label(char **string)
 {
 	size_t ret;
@@ -130,14 +135,22 @@ char *start_by_label(char **string)
 		return (NULL);
 }
 
-int test_1(const char *line_ptr)
+int     parse_label()
+{
+
+}
+
+int parse_line(const char *line_ptr)
 {
 	char *line;
 	char *label;
 
-	line = (char *) line_ptr;
-	asm_clean(&line);
+	line = (char *)line_ptr;
+
 	label = start_by_label(&line);
+	// label --> fonction pour le handle
+	// fonction pour check le reter de la lis
+
 	return (TRUE);
 }
 

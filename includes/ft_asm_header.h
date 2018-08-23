@@ -20,7 +20,7 @@
 # include "asm.h"
 # include "function.h"
 # include "struct.h"
-# include "../../libft/libft/ft_library_header.h"
+# include "ft_library_headerd.h"
 
 /*
 **    Asm

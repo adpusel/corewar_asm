@@ -23,6 +23,6 @@ char *start_by_label(char **string);
 /*
 **    test
 */
-char *all_label_test();
+int all_test();
 
 #endif

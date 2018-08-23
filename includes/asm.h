@@ -22,7 +22,7 @@
 # define ARG -2
 # define SUCCESS 0
 # define OP_TAB_SIZE 17
-# define SKIP_ASM_CHAR " \t"
+# define SKIP_ASM_CHAR " \t\n"
 
 /*
 **    ERROR ========================================================
