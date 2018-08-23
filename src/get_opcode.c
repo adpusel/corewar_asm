@@ -6,7 +6,7 @@
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2017/11/16 12:45:50 by adpusel          ###   ########.fr       */
+/*   Updated: 2018/08/23 15:30:38 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,7 @@ int parse_line(const char *line_ptr)
 
 	line = (char *)line_ptr;
 
-	label = start_by_labelle(&line);
+	label = start_by_label(&line);
 	// label --> fonction pour le handle
 	// fonction pour check le reter de la lis
 
