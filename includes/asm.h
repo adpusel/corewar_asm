@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/23 13:13:18 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/23 14:33:06 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define ERROR_ARG			-3
 # define ERROR_FD			-4
 # define ERROR_FILE_NAME	-5
+# define ERROR_USAGE		-6
 
 typedef struct		s_file
 {

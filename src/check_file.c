@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:38:10 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/23 12:46:01 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/23 14:31:27 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	check_extension(char *file_name)
 {
 	if (!(file_name) || ft_strcmp(file_name + ft_strlen(file_name) - 2, ".s"))
-		handle_error(ERROR_FILE_NAME);
+		handle_error(env, ERROR_FILE_NAME);
 }
 
 static void	get_file_descriptor(t_asm *env, char *file_name)
@@ -24,7 +24,7 @@ static void	get_file_descriptor(t_asm *env, char *file_name)
 
 	fd = open(file_name, O_RDONLY);
 	if (fd == ERROR)
-		handle_error(ERROR_FD);
+		handle_error(env, ERROR_FD);
 }
 
 void		check_file(t_asm *env)

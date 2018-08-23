@@ -16,7 +16,6 @@
 /*
 **    vendor
 */
-# include "op.h"
 # include "asm.h"
 # include "function.h"
 # include "struct.h"
