@@ -1,15 +1,12 @@
 
-#include <stdio.h>
-
+#include "all_test.h"
 
 int tests_run = 0;
-
-
 
 int all_test()
 {
 
-	char *result = all_tests();
+	char *result = all_label_test();
 
 	if (result != 0)
 	{
