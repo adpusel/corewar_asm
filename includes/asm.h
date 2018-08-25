@@ -44,12 +44,20 @@ typedef struct		s_file
 	char		*name;
 }					t_file;
 
+typedef struct		s_char_tab
+{
+	char		*tab;
+	size_t		where;
+}					t_char_tab;
+
 typedef struct		s_parser
 {
 	char		*line;
 	int			step;
 	int			i_line;
 	int			i_char;
+	t_char_tab	tab;
+	char		*where;
 	t_dll		label_list;
 	t_dll		add_list;
 }					t_parser;

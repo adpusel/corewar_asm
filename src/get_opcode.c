@@ -138,6 +138,13 @@ char *start_by_label(char **string)
 //
 //}
 
+
+// TODO gere l'avancement dans les tab de char ? le penser comme un obj
+// quand j'ecris dedans elle keep l'octet ou je suis,
+// le dernier ordre pour cet l'address de :
+// le label et des autres tu
+
+
 int parse_line(const char *line_ptr)
 {
 	char *line;
