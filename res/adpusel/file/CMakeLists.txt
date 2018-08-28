@@ -15,15 +15,13 @@ set(SOURCE_FILES
 
 set(TEST_FILES
         test/all_test.c
-        test/all_test.h
         test/test_label.c
         test/test_find_label.c)
 
 set(DEBUG_FILES
         test/all_test.c
-        test/all_test.h
         test/test_label.c
-        test/test_find_label.c debug/debug_main.c src/objet/label_link.c)
+        test/test_find_label.c debug/debug_main.c src/objet/label_link.c test/all_test.h)
 
 
 add_library(Corwar_lib STATIC

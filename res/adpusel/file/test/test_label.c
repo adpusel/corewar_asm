@@ -1,4 +1,4 @@
-#include "all_test.h"
+#include "../includes/ft_asm_header.h"
 
 /*------------------------------------*\
     lines
@@ -78,9 +78,9 @@ static char *is_bad_label()
 // j'ajoute mon link et je check qu'il soit bien avec les bonnes valeurs
 static char *test_good_link()
 {
-	t_dll_l link_test;
+//	t_dll_l link_test;
 
-	link_test =
+//	link_test =
 	TEST("error --> label start bad", STR_NULL(str_ret_3));
 
 	return (NULL);
