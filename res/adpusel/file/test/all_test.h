@@ -11,6 +11,7 @@
 **    les test
 */
 char *all_label_test();
+char *all_label_find_test();
 
 
 #endif //CORWAR_GROUPE_ALL_TEST_H

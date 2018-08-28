@@ -24,18 +24,8 @@ int ret_2;
 int ret_3;
 int ret_4;
 
-
-/*------------------------------------*\
-    parseur list
-\*------------------------------------*/
-t_parser parser;
-
-void     init_list()
-{
-    init_parseur(&parser);
-}
-
 char *label = "label";
+
 static char *return_good_label()
 {
 	line1 = "  label:";
@@ -75,21 +65,20 @@ static char *is_bad_label()
 	return (NULL);
 }
 
-// j'ajoute mon link et je check qu'il soit bien avec les bonnes valeurs
-static char *test_good_link()
-{
-//	t_dll_l link_test;
-
-//	link_test =
-	TEST("error --> label start bad", STR_NULL(str_ret_3));
-
-	return (NULL);
-}
+//// j'ajoute mon link et je check qu'il soit bien avec les bonnes valeurs
+//static char *test_good_link()
+//{
+////	t_dll_l link_test;
+//
+////	link_test =
+//	TEST("error --> label start bad", STR_NULL(str_ret_3));
+//
+//	return (NULL);
+//}
 
 char *all_label_test()
 {
 	mu_run_test(return_good_label);
 	mu_run_test(is_bad_label);
-	mu_run_test(test_good_link);
 	return 0;
 }
