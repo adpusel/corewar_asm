@@ -33,35 +33,24 @@
 // faire des tests pour chaque function de TEST avec les arguments --> drive TEST dev --> pour la premiere fois
 // ce nombre est l'id de tout les el de verification de ma struck
 
-// new label link
-t_dll_l new_label_link(char *name, size_t address)
-{
-	t_dll_l link;
-	static t_label_00 label;
 
-	label.name = name;
-	label.address = address;
-	link = new_dll_l(&label, sizeof(t_label_00));
-	return (link);
-}
-
-// cherche dans la liste si label existe
-int is_label_in_list(t_dll_l link, void *name)
-{
-	t_label label;
-
-	label = link->content;
-	if (ft_strcmp(label->name, name) == FALSE)
-		return (TRUE);
-	return (FALSE);
-}
+//// cherche dans la liste si label existe
+//int is_label_in_list(t_dll_l link, void *name)
+//{
+//	t_label label;
+//
+//	label = link->content;
+//	if (ft_strcmp(label->name, name) == FALSE)
+//		return (TRUE);
+//	return (FALSE);
+//}
 
 int get_int_op_tab(char *op_searched)
 {
 	int i = 0;
 	while (i < OP_TAB_SIZE)
 	{
-		if (ft_strcmp(g_op_tab[i].name, op_searched) == FALSE)
+		if (ft_str_eq(g_op_tab[i].name, op_searched) == OK)
 			return (i);
 		++i;
 	}
@@ -72,7 +61,7 @@ size_t check_nb_argv(char *curr_line_arg, size_t nb_required)
 {
 	size_t a;
 
-	a = ft_how_many_char(curr_line_arg, SEPARATOR_CHAR);
+	a = ft_how_many_char(SEPARATOR_CHAR, curr_line_arg);
 	return (a == nb_required ? TRUE : FAIL);
 }
 
@@ -80,7 +69,7 @@ int name_comment(t_parser *parser)
 {
 	char *line;
 
-	line = parser->line;
+	line = (char *)parser->line;
 	// if texte dans ma line avec le :
 	return (TRUE);
 }
@@ -88,7 +77,7 @@ int name_comment(t_parser *parser)
 void asm_clean(char **string_ptr)
 {
 
-	while (check_char_into_str(**string_ptr, SKIP_ASM_CHAR) == TRUE)
+	while (check_char_into_str(SKIP_ASM_CHAR, **string_ptr ) == TRUE)
 	{
 		++(*string_ptr);
 	}
@@ -96,12 +85,10 @@ void asm_clean(char **string_ptr)
 
 int is_good_label(char *string)
 {
-	if (check_char_into_str(*string, LABEL_CHARS) == TRUE)
+	if (check_char_into_str(LABEL_CHARS, *string) == TRUE)
 	{
-		while (check_char_into_str(*string, LABEL_CHARS) == TRUE)
-		{
+		while (check_char_into_str(LABEL_CHARS, *string) == TRUE)
 			++string;
-		}
 		if (*string == LABEL_CHAR)
 			return (TRUE);
 		else
@@ -111,32 +98,46 @@ int is_good_label(char *string)
 		return (FALSE);
 }
 
+
+// TODO: fonction de debug de mon label
+	// comme
+
 /**
  *
  * @param string
  * @return
  */
-char *start_by_label(char **string)
+int start_by_label(char **string, char **out)
 {
 	size_t ret;
-	char *out;
 
 	asm_clean(string);
 	if (is_good_label(*string) == TRUE)
 	{
-		ret = ft_strchr_len(*string, ':');
-		out = ft_strndup(*string, ret);
+		ret = ft_strclen(*string, ':');
+		ft_dup_memory((void **)&out, *string, ret);
 		*string += ret;
-		return (out);
+		return (TRUE);
 	}
 	else
-		return (NULL);
+	{
+		*out = NULL;
+		return (FALSE);
+	}
 }
 
-//int     parse_label()
-//{
-//
-//}
+// cet fonction get un label et, ret
+// je cherche la
+int manage_label_dll(const char *label, t_parser parser)
+{
+	(void)label;
+	t_dll *list_label;
+
+	list_label = parser.label_list;
+	return (FALSE);
+}
+
+
 
 
 // TODO gere l'avancement dans les tab de char ? le penser comme un obj
@@ -144,16 +145,18 @@ char *start_by_label(char **string)
 // le dernier ordre pour cet l'address de :
 // le label et des autres tu
 
-
-int parse_line(const char *line_ptr)
+int parse_line(const t_parser parser)
 {
 	char *line;
 	char *label;
 
-	line = (char *)line_ptr;
 
-	label = start_by_label(&line);
-	// label --> fonction pour le handle
+	line = (char *) parser.line;
+	if (start_by_label(&line, &label) == TRUE)
+	{
+
+	}
+	// si label ok ==> je fais :
 	// fonction pour check le peter
 	// function
 	//fasfa;sdjf

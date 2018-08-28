@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asm.h                                              :+:      :+:    :+:   */
+/*   check_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/22 16:15:58 by plamusse         ###   ########.fr       */
+/*   Created: 2018/08/23 10:38:10 by plamusse          #+#    #+#             */
+/*   Updated: 2018/08/23 14:31:27 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CORWAR_GROUPE_FT_ASM_HEADER_H
-#define CORWAR_GROUPE_FT_ASM_HEADER_H
+#include "../../includes/ft_asm_header.h"
 
-/*
-**    vendor
-*/
-# include "asm.h"
-# include "struct.h"
-# include "../ft_library_headerd.h"
+/**
+ * initialise les deux containeur de list chainees
+ * @param parser
+ * @return return la reponse de malloc
+ */
+int init_parseur(t_parser *parser)
+{
+	int ret;
 
-/*
-**    Asm
-*/
-# include "struct.h"
-# include "asm.h"
-# include "a_function.h"
-
-
-/*
-**    debug
-*/
-extern t_debug g_debug;
-
-#endif
+	ret = 1
+		&& new_dll(FALSE, &parser->label_list)
+		&& new_dll(FALSE, &parser->address);
+	return (ret);
+}
