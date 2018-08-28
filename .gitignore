@@ -9,6 +9,8 @@ out
 gen
 obj/
 *.o
+*.swp
+*.dSYM
 libft
 .idea/
 cmake-build-debug/

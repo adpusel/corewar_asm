@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:18:32 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/28 12:48:45 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/28 15:51:59 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void		handle_error(t_asm *env, int err_code)
 {
-	(void)env;
-	//free_env(env);
+	free_asm(env);
 	if (err_code == ERROR_MALLOC)
 		ft_putendl_fd("malloc", 2);
 	else if (err_code == ERROR_FD)

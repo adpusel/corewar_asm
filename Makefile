@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/08/28 13:43:22 by plamusse         ###   ########.fr        #
+#    Updated: 2018/08/28 15:31:00 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,10 @@ LIB_DIR		= ./libft
 # src / obj files
 
 SRC			=	main.c \
+				init.c\
+				check_file.c\
+				parser.c\
+				free.c\
 				handle_error.c
 
 OBJ			= $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
@@ -48,6 +52,7 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c $(INC_DIR)
 	$(CC) $(CFLAGS) -o $@ -c $< -I $(INC_DIR) -I $(LIB_INC)
 
 $(NAME): $(OBJ_DIR) $(OBJ)
+	@$(MAKE) -C $(L_FT)
 	$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIB_LNK)
 
 clean:
