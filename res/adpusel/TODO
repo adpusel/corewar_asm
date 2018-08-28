@@ -1,0 +1,6 @@
+// le label ok -->
+                --> je check si il est dans la liste
+                    > oui : je leve une errure
+                    > non : je l'ajoute
+                     --> je fini et je test ca // ensuite je le give a
+                    > comment je stocke les address ?
