@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/28 13:58:17 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/28 17:49:28 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define ERROR_FILE_NAME	-5
 # define ERROR_USAGE		-6
 # define ERROR_TEST			-7
+# define ERROR_QUOTE		-8
 
 typedef struct		s_file
 {
@@ -60,6 +61,7 @@ typedef struct		s_parser
 typedef struct		s_treat
 {
 	char		*champ;
+	int			i;
 }					t_treat;
 
 typedef struct		s_asm
