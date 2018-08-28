@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/23 15:54:51 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/28 12:58:23 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 # define ASM_H
 
 # include "op.h"
-# include "../../libft/header/struct/dll_struct.h"
-#include "struct.h"
+//# include "../../libft/header/struct/dll_struct.h"
+//# include "struct.h"
+//# include "string.h"
+# include "ft_library_headerd.h"
+# include <stdlib.h>
 
 extern t_op g_op_tab[17];
 
@@ -50,8 +53,8 @@ typedef struct		s_parser
 	int			step;
 	int			i_line;
 	int			i_char;
-	t_dll		label_list;
-	t_dll		add_list;
+//	t_dll		label_list;
+//	t_dll		add_list;
 }					t_parser;
 
 typedef struct		s_treat
@@ -65,5 +68,7 @@ typedef struct		s_asm
 	t_parser	parser;
 	t_treat		treat;
 }					t_asm;
+
+# include "a_function.h"
 
 #endif

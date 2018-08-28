@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse_name.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/22 13:49:15 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/28 12:44:08 by plamusse         ###   ########.fr       */
+/*   Created: 2018/08/25 15:22:35 by plamusse          #+#    #+#             */
+/*   Updated: 2018/08/28 12:31:28 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		main(int argc, char *argv[])
+void			parse_name(t_asm *env)
 {
-	t_asm	*env;
-	t_asm	tmp;
-
-	env = &tmp;
-	if (argc != 2 && !(env->file.name = *(++argv)))
-		handle_error(env, ERROR_USAGE);
-	env->file.name = *(++argv);
-	//check_file(env);
-	//parse_file(env);
+	if (ft_s
+	
 }
