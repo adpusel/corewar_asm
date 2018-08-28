@@ -20,8 +20,8 @@ int new_label_link(const char *name, size_t address, t_dll_l **link_ptr)
 	t_label *label_ptr;
 
 	ret = 1
-		&& new_dll_l(&label_ptr, sizeof(t_label), &link)
-		&& ft_strdup(&cpy_label, name);
+		  && new_dll_l(&label_ptr, sizeof(t_label), &link)
+		  && ft_str_dup(&cpy_label, name);
 	if (ret == OK)
 	{
 		label_ptr = link->content;
@@ -29,5 +29,9 @@ int new_label_link(const char *name, size_t address, t_dll_l **link_ptr)
 		label_ptr->address = address;
 		*link_ptr = link;
 	}
+//	printf("%s \n", label_ptr->name);
+//	printf("%lu \n", label_ptr->address);
+
 	return (ret);
+//return (555);
 }

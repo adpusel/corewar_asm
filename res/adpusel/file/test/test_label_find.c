@@ -76,6 +76,8 @@ static char *test_good_link()
 	ret_1 = new_label_link(label_name_1, address_1, &link_1);
 	label_1 = link_1->content;
 
+//	printf("%s \n", label_1->name);
+//	printf("%lu \n", label_1->address);
 	TEST("error --> test good link",
 		 STR_EQ(label_1->name, label_name_1) &&
 		 NB_EQ(label_1->address, address_1) &&
@@ -89,8 +91,6 @@ static char *test_ajout_and_find_link()
 	char *label_name = "label:";
 	size_t address = 42;
 
-	t_dll_l *link_1;
-	t_label *label_1;
 
 	ret_1 = new_label_link(label_name, address, &link_1);
 	label_1 = link_1->content;
