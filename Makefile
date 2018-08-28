@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/08/28 13:00:28 by plamusse         ###   ########.fr        #
+#    Updated: 2018/08/28 13:43:22 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ CFLAGS		= -g -Wall -Werror -Wextra  -g
 # libraries
 L_FT		= $(LIB_DIR)
 LIB_LNK		= -L $(L_FT) -lft
-LIB_INC		= $(L_FT)/ft_library_headerd.h
+LIB_INC		= $(L_FT)/includes
 
 all: libft $(NAME)
 
@@ -44,7 +44,7 @@ libft:
 $(OBJ_DIR):
 	mkdir -p $@
 
-$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c $(INC_DIR) $(LIB_INC)
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c $(INC_DIR)
 	$(CC) $(CFLAGS) -o $@ -c $< -I $(INC_DIR) -I $(LIB_INC)
 
 $(NAME): $(OBJ_DIR) $(OBJ)

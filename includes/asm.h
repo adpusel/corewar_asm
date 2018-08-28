@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/28 12:58:23 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/28 13:48:19 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 # define ASM_H
 
 # include "op.h"
+# include "libft.h"
 //# include "../../libft/header/struct/dll_struct.h"
 //# include "struct.h"
 //# include "string.h"
-# include "ft_library_headerd.h"
-# include <stdlib.h>
+//# include "ft_library_headerd.h"
 
-extern t_op g_op_tab[17];
 
 /*
 **    DEFINE ========================================================

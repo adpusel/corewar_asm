@@ -7,6 +7,8 @@
 *.iml
 out
 gen
+obj/
+*.o
 libft
 .idea/
 cmake-build-debug/
