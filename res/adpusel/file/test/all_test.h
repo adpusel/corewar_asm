@@ -24,6 +24,7 @@ extern int tests_run;
 #define STR_EQ(str_1, str_2)  (!ft_strcmp(str_1, str_2) && str_1 && str_2)
 #define STR_NULL(str) str == NULL
 
+
 /*
 **    function
 */
