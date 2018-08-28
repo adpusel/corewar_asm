@@ -66,7 +66,7 @@ size_t address_2 = 24;
 void init_list()
 {
 	int ret;
-	ret = init_parseur(&parser);
+	ret = init_parseur(&parser );
 
 	// init le deuxieme link
 }
