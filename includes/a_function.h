@@ -24,6 +24,8 @@ int new_label_link(const char *name, ssize_t address, t_dll_l **link_ptr);
 int start_by_label(char **string, char **out);
 int init_parseur(t_parser *parser);
 int search_label_in_dll(t_dll_l *link, void *label_name_ptr);
+int mode_create(char *label_name, ssize_t address, t_dll *label_list,
+	t_dll_l **link_ptr);
 
 /*
 **    test

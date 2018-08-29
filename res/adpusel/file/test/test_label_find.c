@@ -74,7 +74,7 @@ int print_list_test_label(t_dll_l *link, void *ptr)
 	(void) ptr;
 	label = link->content;
 
-	printf(" -- %s", label->name);
+	printf(" --%s", label->name);
 	return (FALSE);
 }
 
@@ -133,21 +133,33 @@ static char *test_add_and_find_link()
 static char *test_mode_create()
 {
 	t_dll *list;
+
+	// ret link
 	t_dll_l *ret_link_good_1;
 	//	t_dll_l *ret_link_good_2;
 	//	t_dll_l *ret_link_good_3;
 	//	t_dll_l *ret_link_good_4;
 	//	t_dll_l *ret_link_bad;
 
+	// cpm link
+	t_dll_l *link_cmp_1;
+
 	list = parser.label_list;
-	(void) list;
 	char *label_name_1 = "mager_carotte";
+
+	// petit print de la liste pour se mettre bien
+	dll_func_lim(list, print_list_test_label, NULL, ALL_LIST);
+	printf(" \n");
+
+	ret_1 = mode_create(label_name_1, address_1, list, &ret_link_good_1);
+	new_label_link(label_name_1, address_1,&link_cmp_1);
+	
+
 
 	// test label qui existe pas
 	TEST("error --> test_mode_create -- 1",
 		 LINK_EQ(ret_link_good_1, link_1) == OK
 	);
-
 	//test avec un label qui existe mais pas d'address
 
 	// test avec un label qui existe deja et a deja une address

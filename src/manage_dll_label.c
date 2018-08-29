@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_asm_header.h"
+
 /**
  * @return == True > label == is in dll
  */
@@ -26,16 +27,40 @@ int search_label_in_dll(t_dll_l *link, void *label_name_ptr)
 	return (FALSE);
 }
 
-int mode_create(char *label_name, t_dll *label_list)
+int static is_link(ssize_t address, t_label *label)
+{
+	int ret;
+
+	if (label->address == NO_ADDRESS)
+	{
+		label->address = address;
+		ret = OK;
+	}
+	else
+		ret = FAIL;
+	return (ret);
+}
+
+
+int mode_create(char *label_name,
+	ssize_t address,
+	t_dll *label_list,
+	t_dll_l **link_ptr)
 {
 	t_dll_l *link;
-	t_label	*label;
 
+	int ret;
 	link = dll_func_lim(label_list, search_label_in_dll, label_name, ALL_LIST);
 	if (link != NULL)
 	{
-
+		ret = is_link(label_name, link->content);
 	}
-
-	return (TRUE);
+	else
+	{
+		ret = new_label_link(label_name, address, &link);
+		if (ret)
+			dll_add_at_index(link, label_list, label_list->length);
+	}
+	*link_ptr = link;
+	return (ret);
 }
