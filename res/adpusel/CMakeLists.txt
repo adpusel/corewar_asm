@@ -12,7 +12,7 @@ project(${PROJECT_NAME})
 #*------------------------------------*/
 set(CMAKE_C_STANDARD 99)
 #set(CMAKE_C_COMPILER "/usr/bin/gcc")
-#set(CMAKE_C_FLAGS "-Wall -Wextra -Werror")
+set(CMAKE_C_FLAGS "-Wall -Wextra -Werror")
 
 #-fsanitize=memory-fsanitize-memory-track-origins=2 -fsanitize=address
 

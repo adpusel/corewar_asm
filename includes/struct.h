@@ -19,7 +19,7 @@ typedef struct s_op
 typedef struct		s_label_00
 {
 	const char *name;
-	size_t address;
+	ssize_t address;
 }					t_label;
 
 typedef struct		s_address

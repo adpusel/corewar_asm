@@ -21,7 +21,7 @@ set(TEST_FILES
 set(DEBUG_FILES
         test/all_test.c
         test/test_label.c
-        test/test_label_find.c debug/debug_main.c src/objet/label_link.c test/all_test.h)
+        test/test_label_find.c debug/debug_main.c src/objet/label_link.c test/all_test.h src/manage_dll_label.c)
 
 
 add_library(Corwar_lib STATIC
