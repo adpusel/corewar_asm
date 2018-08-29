@@ -28,6 +28,10 @@
 # define SUCCESS 0
 # define OP_TAB_SIZE 17
 # define SKIP_ASM_CHAR " \t\n"
+# define NAME_STRING ".name"
+# define NAME_STRLEN 5
+# define COMMENT_STRING ".comment"
+# define COMMENT_STRLEN 8
 
 /*
 **    ERROR ========================================================
@@ -50,6 +54,7 @@ typedef struct		s_file
 
 typedef struct		s_parser
 {
+	t_header	header;
 	char		*line;
 	int			step;
 	int			i_line;

@@ -43,6 +43,7 @@
 #define LABEL_CHAR				':'
 #define DIRECT_CHAR				'%'
 #define SEPARATOR_CHAR			','
+#define QUOTE_CHAR			'"'
 
 #define LABEL_CHARS				"abcdefghijklmnopqrstuvwxyz_0123456789"
 
@@ -78,9 +79,11 @@ typedef char	t_arg_type;
 typedef struct		header_s
 {
 	unsigned int		magic;
-	char				prog_name[PROG_NAME_LENGTH + 1];
+	char			prog_name[PROG_NAME_LENGTH + 1];
+	int			i_name;
 	unsigned int		prog_size;
-	char				comment[COMMENT_LENGTH + 1];
+	char			comment[COMMENT_LENGTH + 1];
+	int			i_com;
 }					header_t;
 
 #endif //CORWAR_GROUPE_OP_H

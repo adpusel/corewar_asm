@@ -18,8 +18,25 @@ static void		init_file(t_file *file)
 	file->name = NULL;
 }
 
+static void		init_header(t_header *header)
+{
+	int		num;
+
+	num = COREWAR_EXEC_MAGIC;
+	header->magic = ((num>>24)&0xff)
+		| ((num<<8)&0xff0000)
+		| ((num>>8)&0xff00)
+		| ((num<<24)&0xff000000);
+	ft_memset((void*)prog_name, 0, PROG_NAME_LENGTH + 1);
+	i_name = 0;
+	prog_size = 0;
+	ft_memset((void*)comment, 0, COMMENT_LENGTH + 1);
+	i_com = 0;
+}
+
 static void		init_parser(t_parser *parser)
 {
+	init_header(&(parser->header));
 	parser->line = NULL;
 	parser->step = 0;
 	parser->i_line = 0;
@@ -30,21 +47,12 @@ static void		init_parser(t_parser *parser)
 
 static int		init_treat(t_treat *treat)
 {
-	int		magic_number;
-	int		num;
 
 	treat->champ = (char*)malloc(sizeof(char) * (CHAMP_MAX_SIZE));
 	if (!(treat->champ))
 		return (ERROR_MALLOC);
 	ft_memset((void*)treat->champ, 0, CHAMP_MAX_SIZE);
 	treat->i = 0;
-	num = COREWAR_EXEC_MAGIC;
-	magic_number = ((num>>24)&0xff)
-		| ((num<<8)&0xff0000)
-		| ((num>>8)&0xff00)
-		| ((num<<24)&0xff000000);
-	ft_memcpy(treat->champ, &magic_number, 4);
-	treat->i += 4;
 	return (SUCCESS);
 }
 
