@@ -23,6 +23,8 @@ void	check_file(t_asm *env);
 
 void			parse_file(t_asm *env);
 void			parse_name(t_asm *env);
+void			parse_comment(t_asm *env);
+
 /*
 **    label
 */

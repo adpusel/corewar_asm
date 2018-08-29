@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/28 17:49:28 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/29 18:00:33 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # define SUCCESS 0
 # define OP_TAB_SIZE 17
 # define SKIP_ASM_CHAR " \t\n"
-# define NAME_STRING ".name"
-# define NAME_STRLEN 5
+# define PROG_NAME_STRING ".name"
+# define PROG_NAME_STRLEN 5
 # define COMMENT_STRING ".comment"
 # define COMMENT_STRLEN 8
 
@@ -45,6 +45,7 @@
 # define ERROR_USAGE		-6
 # define ERROR_TEST			-7
 # define ERROR_QUOTE		-8
+# define ERROR_HEADER		-9
 
 typedef struct		s_file
 {

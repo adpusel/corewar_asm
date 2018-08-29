@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 15:22:35 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/28 18:18:00 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/29 17:27:01 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,18 @@ static int		check_first_line(t_asm *env)
 		if (env->parser.line[i++] != QUOTE_CHAR)
 			handle_error(env, ERROR_QUOTE);
 	}
+	else
+		handle_error(env, ERROR_HEADER);
 	return (i);
 }
 
-static int		check_last_line(t_asm *env, int i)
+static void		check_last_line(t_asm *env, int i)
 {
 	i += ft_skip_spaces(env->parser.line + i);
-	(env->parser.line[i] == '\0') ? env->parser.step = 1
-		: env->parser.step = ERROR;
+	if (env->parser.line[i] == '\0')
+	   	env->parser.step = 1;
+	else
+		env->parser.step = ERROR;
 }
 
 void			parse_name(t_asm *env)
@@ -67,6 +71,7 @@ void			parse_name(t_asm *env)
 		&& cur != QUOTE_CHAR
 		&& header->i_name <= PROG_NAME_LENGTH)
 		header->prog_name[header->i_name++] = cur;
-	if (cur == '"')
-		check_last_line(env, i++);
+	if (header->i_name > PROG_NAME_LENGTH)
+		handle_error(env, ERROR_HEADER);
+	(cur == '"') ? check_last_line(env, i++) : (header->prog_name[header->i_name++] = '\n');
 }

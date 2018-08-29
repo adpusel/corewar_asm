@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 14:19:55 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/28 18:18:01 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/29 16:18:20 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ static void		init_header(t_header *header)
 		| ((num<<8)&0xff0000)
 		| ((num>>8)&0xff00)
 		| ((num<<24)&0xff000000);
-	ft_memset((void*)prog_name, 0, PROG_NAME_LENGTH + 1);
-	i_name = 0;
-	prog_size = 0;
-	ft_memset((void*)comment, 0, COMMENT_LENGTH + 1);
-	i_com = 0;
+	ft_memset((void*)header->prog_name, 0, PROG_NAME_LENGTH + 1);
+	header->i_name = 0;
+	header->prog_size = 0;
+	ft_memset((void*)header->comment, 0, COMMENT_LENGTH + 1);
+	header->i_com = 0;
 }
 
 static void		init_parser(t_parser *parser)

@@ -76,7 +76,7 @@ typedef char	t_arg_type;
 # define COMMENT_LENGTH			(2048)
 # define COREWAR_EXEC_MAGIC		0xea83f3
 
-typedef struct		header_s
+typedef struct		s_header
 {
 	unsigned int		magic;
 	char			prog_name[PROG_NAME_LENGTH + 1];
@@ -84,6 +84,6 @@ typedef struct		header_s
 	unsigned int		prog_size;
 	char			comment[COMMENT_LENGTH + 1];
 	int			i_com;
-}					header_t;
+}					t_header;
 
 #endif //CORWAR_GROUPE_OP_H

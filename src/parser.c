@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:56:20 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/28 18:18:00 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/29 18:00:30 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,16 @@ void			parse_file(t_asm *env)
 	while ((ret = get_next_line(env->file.fd, &(env->parser.line))) > 0)
 	{
 		env->parser.i_line++;
-		//printf("line=%s\n", env->parser.line);
 		if (env->parser.step == 0)
 			parse_name(env);
 		else if (env->parser.step == 1)
-			;//parse_comment(env);
+			parse_comment(env);
 		else if (env->parser.step == 2)
 			;//parse_line(env);
 		free(env->parser.line);
 	}
-	print_memory(env->treat.champ, 16);
-	printf("ok\n");
 	if (ret < 0)
 		handle_error(env, ERROR_FD);
+	printf("name=%s\n", env->parser.header.prog_name);
+	printf("comment=%s\n", env->parser.header.comment);
 }

@@ -1,6 +1,10 @@
- 	 	.name	 	  		"Spaceborg"		 
-.comment		"Un champion dans l'espace"
+.name		"ENDLborg"
+.comment	"
 
+blip
+blap
+bloup
+"
 l2:		sti r1, %:live, %1
 		and r1, %0, r1
 
