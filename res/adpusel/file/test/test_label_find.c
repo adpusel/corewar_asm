@@ -184,12 +184,12 @@ static char *test_mode_create_2()
 
 	//test avec un label qui existe mais pas d'address
 	ret_2 = mode_create(label_name_2, 4224, list, &link_ret);
-	new_label_link(label_name_1, address_1, &cmp_link);
+	new_label_link(label_name_2, 4224, &cmp_link);
 
 	TEST("error --> test_mode_create -- 2",
 		 LINK_FUNC_EQ(link_ret, cmp_link, test_label) == OK &&
 		 ret_2 == TRUE);
-
+	return (NULL);
 }
 
 // la fonction de recherche prends l'address du link et retourn ok s'il
