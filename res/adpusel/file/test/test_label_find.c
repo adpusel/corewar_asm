@@ -16,10 +16,10 @@ t_parser parser;
 /*------------------------------------*\
     link
 \*------------------------------------*/
-t_dll_l *link_1;
-t_dll_l *link_2;
-t_dll_l *link_3;
-t_dll_l *link_4;
+t_dll_l *g_link_1;
+t_dll_l *g_link_2;
+t_dll_l *g_link_3;
+t_dll_l *g_link_4;
 
 t_label *label_1;
 t_label *label_2;
@@ -36,6 +36,9 @@ ssize_t address_2 = -1;
 ssize_t address_3 = 4242;
 ssize_t address_4 = 578;
 
+/*------------------------------------*\
+    helper
+\*------------------------------------*/
 void init_list()
 {
 	int ret;
@@ -44,13 +47,43 @@ void init_list()
 	// init le deuxieme link
 }
 
+int print_list_test_label(t_dll_l *link, void *ptr)
+{
+	t_label *label;
+
+	(void) ptr;
+	label = link->content;
+
+	printf(" --%s", label->name);
+	return (FALSE);
+}
+
+int test_label(t_dll_l *li_1, t_dll_l *li_2)
+{
+	int ret;
+	t_label *l1;
+	t_label *l2;
+
+	l1 = li_1->content;
+	l2 = li_2->content;
+	ret = li_1->content_size == g_link_1->content_size;
+	if (ret)
+	    ret = STR_EQ(l1->name, l2->name);
+	if (ret)
+	    ret = l1->address == l2->address;
+	return (ret);
+}
+
+/*------------------------------------*\
+    test
+\*------------------------------------*/
 static char *test_good_link()
 {
-	ret_1 = new_label_link(label_name_1, address_1, &link_1);
-	ret_2 = new_label_link(label_name_2, -1, &link_2);
+	ret_1 = new_label_link(label_name_1, address_1, &g_link_1);
+	ret_2 = new_label_link(label_name_2, -1, &g_link_2);
 
-	label_1 = link_1->content;
-	label_2 = link_2->content;
+	label_1 = g_link_1->content;
+	label_2 = g_link_2->content;
 
 	//	printf("%s \n", label_1->name);
 	//	printf("%lu \n", label_1->address);
@@ -67,17 +100,6 @@ static char *test_good_link()
 	return (NULL);
 }
 
-int print_list_test_label(t_dll_l *link, void *ptr)
-{
-	t_label *label;
-
-	(void) ptr;
-	label = link->content;
-
-	printf(" --%s", label->name);
-	return (FALSE);
-}
-
 // test si
 // --> j'ajoute
 // --> find
@@ -92,13 +114,13 @@ static char *test_add_and_find_link()
 
 	list = parser.label_list;
 	(void) list;
-	ret_3 = new_label_link(label_name_3, address_3, &link_3);
-	ret_4 = new_label_link(label_name_4, address_4, &link_4);
+	ret_3 = new_label_link(label_name_3, address_3, &g_link_3);
+	ret_4 = new_label_link(label_name_4, address_4, &g_link_4);
 
-	dll_add_at_index(link_1, parser.label_list, list->length);
-	dll_add_at_index(link_2, parser.label_list, list->length);
-	dll_add_at_index(link_3, parser.label_list, list->length);
-	dll_add_at_index(link_4, parser.label_list, list->length);
+	dll_add_at_index(g_link_1, parser.label_list, list->length);
+	dll_add_at_index(g_link_2, parser.label_list, list->length);
+	dll_add_at_index(g_link_3, parser.label_list, list->length);
+	dll_add_at_index(g_link_4, parser.label_list, list->length);
 
 
 	// test la recherche du link avec label existe
@@ -109,31 +131,33 @@ static char *test_add_and_find_link()
 	ret_link_bad = dll_func_lim(list, search_label_in_dll, "fuck", -1);
 
 	label_1 = ret_link_good_2->content;
-	label_2 = link_2->content;
+	label_2 = g_link_2->content;
 	TEST("error --> test_add_and_find_link -- 1",
-		 LINK_EQ(ret_link_good_1, link_1) == OK
+		 LINK_EQ(ret_link_good_1, g_link_1) == OK
 	);
 	TEST("error --> test_add_and_find_link -- 2",
-		 LINK_EQ(ret_link_good_2, link_2) == OK
+		 LINK_EQ(ret_link_good_2, g_link_2) == OK
 	);
 	TEST("error --> test_add_and_find_link -- 3",
-		 LINK_EQ(ret_link_good_3, link_3) == OK
+		 LINK_EQ(ret_link_good_3, g_link_3) == OK
 	);
 	TEST("error --> test_add_and_find_link -- 4",
-		 LINK_EQ(ret_link_good_4, link_4) == OK
+		 LINK_EQ(ret_link_good_4, g_link_4) == OK
 	);
 
 	TEST("error --> test_add_and_find_link 5",
-		 LINK_EQ(ret_link_bad, link_4) == PTR_NULL &&
+		 LINK_EQ(ret_link_bad, g_link_4) == PTR_NULL &&
 		 ret_link_bad == NULL
 	);
 	return (NULL);
 }
 
+// test si
 static char *test_mode_create()
 {
 	t_dll *list;
-
+	t_label *l1;
+	t_label *l2;
 	// ret link
 	t_dll_l *ret_link_good_1;
 	//	t_dll_l *ret_link_good_2;
@@ -152,13 +176,14 @@ static char *test_mode_create()
 	printf(" \n");
 
 	ret_1 = mode_create(label_name_1, address_1, list, &ret_link_good_1);
-	new_label_link(label_name_1, address_1,&link_cmp_1);
-	
+	new_label_link(label_name_1, address_1, &link_cmp_1);
 
+	l1 = ret_link_good_1->content;
+	l2 = link_cmp_1->content;
 
 	// test label qui existe pas
-	TEST("error --> test_mode_create -- 1",
-		 LINK_EQ(ret_link_good_1, link_1) == OK
+	TEST("error --> test_mode_create -- 4",
+		 LINK_FUNC_EQ(ret_link_good_1, link_cmp_1, test_label) == OK
 	);
 	//test avec un label qui existe mais pas d'address
 

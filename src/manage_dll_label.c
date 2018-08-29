@@ -53,7 +53,7 @@ int mode_create(char *label_name,
 	link = dll_func_lim(label_list, search_label_in_dll, label_name, ALL_LIST);
 	if (link != NULL)
 	{
-		ret = is_link(label_name, link->content);
+		ret = is_link(address, link->content);
 	}
 	else
 	{
