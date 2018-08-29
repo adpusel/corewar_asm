@@ -192,9 +192,18 @@ static char *test_mode_create_2()
 	return (NULL);
 }
 
-// la fonction de recherche prends l'address du link et retourn ok s'il
-// est --> inexistant ==> create link || with or not address
-// si existe mais n'as pas d'address --> update ?
+static char *test_mode_create_3()
+{
+	t_dll *list = parser.label_list;
+	t_dll_l *link_ret;
+
+	//le label existe deja et a une address
+	ret_3 = mode_create(label_name_3, address_3, list, &link_ret);
+
+	TEST("error --> test_mode_create -- 3",
+		 ret_3 == FAIL);
+	return (NULL);
+}
 
 char *all_label_find_test()
 {
@@ -204,5 +213,6 @@ char *all_label_find_test()
 	mu_run_test(test_add_and_find_link);
 	mu_run_test(test_mode_create_1);
 	mu_run_test(test_mode_create_2);
+	mu_run_test(test_mode_create_3);
 	return 0;
 }

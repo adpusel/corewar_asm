@@ -49,6 +49,7 @@ int mode_create(char *label_name,
 {
 	t_dll_l *link;
 
+	link = NULL;
 	int ret;
 	link = dll_func_lim(label_list, search_label_in_dll, label_name, ALL_LIST);
 	if (link != NULL)
