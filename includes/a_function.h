@@ -11,7 +11,7 @@
 /*
 **    obj
 */
-int new_label_link(const char *name, size_t address, t_dll_l **link_ptr);
+int new_label_link(const char *name, ssize_t address, t_dll_l **link_ptr);
 
 /*
 **    define
@@ -23,6 +23,7 @@ int new_label_link(const char *name, size_t address, t_dll_l **link_ptr);
 */
 int start_by_label(char **string, char **out);
 int init_parseur(t_parser *parser);
+int search_label_in_dll(t_dll_l *link, void *label_name_ptr);
 
 /*
 **    test

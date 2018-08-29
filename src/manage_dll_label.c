@@ -10,24 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_asm_header.h"
+#include "../includes/ft_asm_header.h"
 
-int new_label_link(const char *name, ssize_t address, t_dll_l **link_ptr)
+int search_label_in_dll(t_dll_l *link, void *label_name_ptr)
 {
-	int ret;
-	char *cpy_label;
-	t_dll_l *link;
-	t_label *label_ptr;
+	char *label_name;
+	t_label *label;
 
-	ret = 1
-		  && new_dll_l(&label_ptr, sizeof(t_label), &link)
-		  && ft_str_dup(&cpy_label, name);
-	if (ret == OK)
-	{
-		label_ptr = link->content;
-		label_ptr->name = cpy_label;
-		label_ptr->address = address;
-		*link_ptr = link;
-	}
-	return (ret);
+	label_name = label_name_ptr;
+	label = link->content;
+	if (ft_str_eq(label->name, label_name) == TRUE)
+		return (TRUE);
+	return (FALSE);
 }
