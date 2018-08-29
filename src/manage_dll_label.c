@@ -11,7 +11,9 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_asm_header.h"
-
+/**
+ * @return == True > label == is in dll
+ */
 int search_label_in_dll(t_dll_l *link, void *label_name_ptr)
 {
 	char *label_name;
@@ -22,4 +24,18 @@ int search_label_in_dll(t_dll_l *link, void *label_name_ptr)
 	if (ft_str_eq(label->name, label_name) == TRUE)
 		return (TRUE);
 	return (FALSE);
+}
+
+int mode_create(char *label_name, t_dll *label_list)
+{
+	t_dll_l *link;
+	t_label	*label;
+
+	link = dll_func_lim(label_list, search_label_in_dll, label_name, ALL_LIST);
+	if (link != NULL)
+	{
+
+	}
+
+	return (TRUE);
 }

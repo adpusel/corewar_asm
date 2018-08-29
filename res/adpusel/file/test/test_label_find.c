@@ -1,36 +1,5 @@
 #include "../includes/ft_asm_header.h"
 
-// les liste que je vais manipuler
-// comment je vais les manipurler
-// il me faut des debug pour set les breakpoints tout ca tout ca
-
-
-// TODO: test qui la recherche
-
-
-// TODO: test l'ajout avec address
-
-// TODO: test ajout sans address
-
-// TODO: test probleme
-
-
-/*------------------------------------*\
-    lines
-\*------------------------------------*/
-char *line1;
-char *line2;
-char *line3;
-char *line4;
-
-/*------------------------------------*\
-	char ret
-\*------------------------------------*/
-char *str_ret_1;
-char *str_ret_2;
-char *str_ret_3;
-char *str_ret_4;
-
 /*------------------------------------*\
     int ret
 \*------------------------------------*/
@@ -85,12 +54,12 @@ static char *test_good_link()
 
 	//	printf("%s \n", label_1->name);
 	//	printf("%lu \n", label_1->address);
-	TEST("error --> test good link",
+	TEST("error --> test good link 1",
 		 STR_EQ(label_1->name, label_name_1) &&
 		 NB_EQ(label_1->address, address_1) &&
 		 ret_1 == TRUE
 	);
-	TEST("error --> test good link",
+	TEST("error --> test good link 2",
 		 STR_EQ(label_2->name, label_name_2) &&
 		 NB_EQ(label_2->address, address_2) &&
 		 ret_2 == TRUE
@@ -98,44 +67,104 @@ static char *test_good_link()
 	return (NULL);
 }
 
+int print_list_test_label(t_dll_l *link, void *ptr)
+{
+	t_label *label;
+
+	(void) ptr;
+	label = link->content;
+
+	printf(" -- %s", label->name);
+	return (FALSE);
+}
+
 // test si
 // --> j'ajoute
 // --> find
-// --> update
-// il ma ajoute le label s'il n'existe pas,
-// l'update s'il y besion,
-// return err si label existe deja, ok sinon
-// 1 --> fonction de recherche de label ==> un ok et un pas ok
-static char *test_ajout_and_find_link()
+static char *test_add_and_find_link()
 {
 	t_dll *list;
-	t_dll_l *ret_link_1;
+	t_dll_l *ret_link_good_1;
+	t_dll_l *ret_link_good_2;
+	t_dll_l *ret_link_good_3;
+	t_dll_l *ret_link_good_4;
+	t_dll_l *ret_link_bad;
 
 	list = parser.label_list;
 	(void) list;
 	ret_3 = new_label_link(label_name_3, address_3, &link_3);
 	ret_4 = new_label_link(label_name_4, address_4, &link_4);
 
-	dll_add_at_index(link_1, parser.label_list, 0);
-	dll_add_at_index(link_2, parser.label_list, 0);
-	dll_add_at_index(link_3, parser.label_list, 0);
+	dll_add_at_index(link_1, parser.label_list, list->length);
+	dll_add_at_index(link_2, parser.label_list, list->length);
+	dll_add_at_index(link_3, parser.label_list, list->length);
+	dll_add_at_index(link_4, parser.label_list, list->length);
 
 
 	// test la recherche du link avec label existe
-	ret_link_1 = dll_func_lim(list, search_label_in_dll,label_name_4, -1);
-	label_1 = ret_link_1->content;
-	printf("%s \n",label_1->name);
+	ret_link_good_1 = dll_func_lim(list, search_label_in_dll, label_name_1, -1);
+	ret_link_good_2 = dll_func_lim(list, search_label_in_dll, label_name_2, -1);
+	ret_link_good_3 = dll_func_lim(list, search_label_in_dll, label_name_3, -1);
+	ret_link_good_4 = dll_func_lim(list, search_label_in_dll, label_name_4, -1);
+	ret_link_bad = dll_func_lim(list, search_label_in_dll, "fuck", -1);
 
-	//	dll_add_at_index(link_4, parser.label_list, 0);
+	label_1 = ret_link_good_2->content;
+	label_2 = link_2->content;
+	TEST("error --> test_add_and_find_link -- 1",
+		 LINK_EQ(ret_link_good_1, link_1) == OK
+	);
+	TEST("error --> test_add_and_find_link -- 2",
+		 LINK_EQ(ret_link_good_2, link_2) == OK
+	);
+	TEST("error --> test_add_and_find_link -- 3",
+		 LINK_EQ(ret_link_good_3, link_3) == OK
+	);
+	TEST("error --> test_add_and_find_link -- 4",
+		 LINK_EQ(ret_link_good_4, link_4) == OK
+	);
+
+	TEST("error --> test_add_and_find_link 5",
+		 LINK_EQ(ret_link_bad, link_4) == PTR_NULL &&
+		 ret_link_bad == NULL
+	);
+	return (NULL);
+}
+
+static char *test_mode_create()
+{
+	t_dll *list;
+	t_dll_l *ret_link_good_1;
+	//	t_dll_l *ret_link_good_2;
+	//	t_dll_l *ret_link_good_3;
+	//	t_dll_l *ret_link_good_4;
+	//	t_dll_l *ret_link_bad;
+
+	list = parser.label_list;
+	(void) list;
+	char *label_name_1 = "mager_carotte";
+
+	// test label qui existe pas
+	TEST("error --> test_mode_create -- 1",
+		 LINK_EQ(ret_link_good_1, link_1) == OK
+	);
+
+	//test avec un label qui existe mais pas d'address
+
+	// test avec un label qui existe deja et a deja une address
 
 	return (NULL);
 }
+
+// la fonction de recherche prends l'address du link et retourn ok s'il
+// est --> inexistant ==> create link || with or not address
+// si existe mais n'as pas d'address --> update ?
 
 char *all_label_find_test()
 {
 	init_list();
 
 	mu_run_test(test_good_link);
-	mu_run_test(test_ajout_and_find_link);
+	mu_run_test(test_add_and_find_link);
+	mu_run_test(test_mode_create);
 	return 0;
 }

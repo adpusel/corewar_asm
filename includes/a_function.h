@@ -9,6 +9,11 @@
 
 
 /*
+**    define
+*/
+# define NO_ADDRESS
+
+/*
 **    obj
 */
 int new_label_link(const char *name, ssize_t address, t_dll_l **link_ptr);
