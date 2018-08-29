@@ -32,7 +32,7 @@ char *label_name_3 = "manger:";
 char *label_name_4 = "qwery:";
 
 ssize_t address_1 = 42;
-ssize_t address_2 = -1;
+ssize_t address_2 = NO_ADDRESS;
 ssize_t address_3 = 4242;
 ssize_t address_4 = 578;
 
@@ -68,9 +68,9 @@ int test_label(t_dll_l *li_1, t_dll_l *li_2)
 	l2 = li_2->content;
 	ret = li_1->content_size == g_link_1->content_size;
 	if (ret)
-	    ret = STR_EQ(l1->name, l2->name);
+		ret = STR_EQ(l1->name, l2->name);
 	if (ret)
-	    ret = l1->address == l2->address;
+		ret = l1->address == l2->address;
 	return (ret);
 }
 
@@ -80,7 +80,7 @@ int test_label(t_dll_l *li_1, t_dll_l *li_2)
 static char *test_good_link()
 {
 	ret_1 = new_label_link(label_name_1, address_1, &g_link_1);
-	ret_2 = new_label_link(label_name_2, -1, &g_link_2);
+	ret_2 = new_label_link(label_name_2, address_2, &g_link_2);
 
 	label_1 = g_link_1->content;
 	label_2 = g_link_2->content;
@@ -153,43 +153,43 @@ static char *test_add_and_find_link()
 }
 
 // test si
-static char *test_mode_create()
+static char *test_mode_create_1()
 {
-	t_dll *list;
-	t_label *l1;
-	t_label *l2;
-	// ret link
-	t_dll_l *ret_link_good_1;
-	//	t_dll_l *ret_link_good_2;
-	//	t_dll_l *ret_link_good_3;
-	//	t_dll_l *ret_link_good_4;
-	//	t_dll_l *ret_link_bad;
+	t_dll *list = parser.label_list;
+	t_dll_l *link_ret;
+	t_dll_l *link_cmp;
 
-	// cpm link
-	t_dll_l *link_cmp_1;
-
-	list = parser.label_list;
-	char *label_name_1 = "mager_carotte";
-
-	// petit print de la liste pour se mettre bien
-	dll_func_lim(list, print_list_test_label, NULL, ALL_LIST);
-	printf(" \n");
-
-	ret_1 = mode_create(label_name_1, address_1, list, &ret_link_good_1);
-	new_label_link(label_name_1, address_1, &link_cmp_1);
-
-	l1 = ret_link_good_1->content;
-	l2 = link_cmp_1->content;
+	char *label_name_1 = "manger_carotte";
 
 	// test label qui existe pas
-	TEST("error --> test_mode_create -- 4",
-		 LINK_FUNC_EQ(ret_link_good_1, link_cmp_1, test_label) == OK
-	);
-	//test avec un label qui existe mais pas d'address
+	ret_1 = mode_create(label_name_1, address_1, list, &link_ret);
+	new_label_link(label_name_1, address_1, &link_cmp);
+
+	TEST("error --> test_mode_create -- 1",
+		 LINK_FUNC_EQ(link_ret, link_cmp, test_label) == OK &&
+		 ret_1 == TRUE);
+
+
 
 	// test avec un label qui existe deja et a deja une address
 
 	return (NULL);
+}
+
+static char *test_mode_create_2()
+{
+	t_dll *list = parser.label_list;
+	t_dll_l *link_ret;
+	t_dll_l *cmp_link;
+
+	//test avec un label qui existe mais pas d'address
+	ret_2 = mode_create(label_name_2, 4224, list, &link_ret);
+	new_label_link(label_name_1, address_1, &cmp_link);
+
+	TEST("error --> test_mode_create -- 2",
+		 LINK_FUNC_EQ(link_ret, cmp_link, test_label) == OK &&
+		 ret_2 == TRUE);
+
 }
 
 // la fonction de recherche prends l'address du link et retourn ok s'il
@@ -202,6 +202,7 @@ char *all_label_find_test()
 
 	mu_run_test(test_good_link);
 	mu_run_test(test_add_and_find_link);
-	mu_run_test(test_mode_create);
+	mu_run_test(test_mode_create_1);
+	mu_run_test(test_mode_create_2);
 	return 0;
 }
