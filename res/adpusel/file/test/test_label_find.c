@@ -230,7 +230,7 @@ static char *test_mode_find()
 
 char *all_label_find_test()
 {
-	init_list();
+	init_list( );
 
 	mu_run_test(test_good_link);
 	mu_run_test(test_add_and_find_link);
