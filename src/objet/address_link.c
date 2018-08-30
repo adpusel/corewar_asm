@@ -18,6 +18,11 @@ int new_address_link(t_label *label, t_dll_l **link_ptr)
 	t_address *address_ptr;
 	int ret;
 
+	if (label == NULL || link_ptr == NULL)
+	{
+		*link_ptr = NULL;
+		return (PTR_NULL);
+	}
 	ret = new_dll_l(&address_ptr, sizeof(t_address), &link);
 	if (ret == OK)
 	{

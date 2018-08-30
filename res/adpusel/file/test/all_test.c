@@ -9,6 +9,8 @@ int all_test()
 	char *result = all_label_test();
 	if (result == NULL)
 		result = all_label_find_test();
+	if (result == NULL)
+		result = all_address_test();
 
 	if (result != 0)
 	{

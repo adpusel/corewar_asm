@@ -58,7 +58,7 @@ int print_list_test_label(t_dll_l *link, void *ptr)
 	return (FALSE);
 }
 
-int test_label(t_dll_l *li_1, t_dll_l *li_2)
+static int test_label(t_dll_l *li_1, t_dll_l *li_2)
 {
 	int ret;
 	t_label *l1;
