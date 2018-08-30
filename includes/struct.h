@@ -24,11 +24,11 @@ typedef struct		s_label_00
 
 typedef struct		s_address
 {
-	size_t address;
-	int size;
-	t_label label_ptr;
-}					t_address_00;
-typedef t_address_00 *t_address;
+	size_t address_instruction;
+	size_t address_param;
+	size_t size_param;
+	t_label *label_ptr;
+}					t_address;
 
 typedef struct		s_debug
 {
