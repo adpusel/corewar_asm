@@ -1,0 +1,8 @@
+.name "Nospaceborg"
+.comment "A shittily intended program"
+
+l2:sti r1,%:live,%1
+and r1,%0, r1
+live:live%1
+ld:live, r1
+zjmp%:live

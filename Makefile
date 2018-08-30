@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/08/29 16:26:20 by plamusse         ###   ########.fr        #
+#    Updated: 2018/08/30 15:08:06 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,10 +58,11 @@ $(NAME): $(OBJ_DIR) $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIB_LNK)
 
 clean:
-	@$(MAKE) fclean -C $(L_FT)
+	@$(MAKE) clean -C $(L_FT)
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
+	@$(MAKE) fclean -C $(L_FT)
 	rm -rf $(NAME)
 	rm -rf *.dSYM
 

@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/29 18:00:33 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/30 15:05:42 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@
 typedef struct		s_file
 {
 	int			fd;
+	int			ret;
 	char		*name;
 }					t_file;
 

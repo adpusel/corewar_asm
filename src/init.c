@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 14:19:55 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/29 16:18:20 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/30 12:30:00 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void		init_file(t_file *file)
 {
 	file->fd = 0;
+	file->ret = 0;
 	file->name = NULL;
 }
 
