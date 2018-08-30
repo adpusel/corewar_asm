@@ -7,7 +7,10 @@
 *.iml
 out
 gen
-libft
+obj/
+*.o
+*.swp
+*.dSYM
 .idea/
 cmake-build-debug/
 .DS_Store

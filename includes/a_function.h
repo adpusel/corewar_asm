@@ -19,6 +19,26 @@ int new_label_link(const char *name, ssize_t address, t_dll_l **link_ptr);
 # define NO_ADDRESS -1
 
 /*
+**	INIT
+*/
+
+void	init_asm(t_asm *env);
+
+/*
+**	Check_file
+*/
+
+void	check_file(t_asm *env);
+
+/*
+**	PARSER
+*/
+
+void			parse_file(t_asm *env);
+void			parse_name(t_asm *env);
+void			parse_comment(t_asm *env);
+
+/*
 **    label
 */
 int start_by_label(char **string, char **out);
@@ -28,7 +48,19 @@ int mode_create(char *label_name, ssize_t address, t_dll *label_list,
 	t_dll_l **link_ptr);
 int mode_find(char *label_name, t_dll *label_list, t_dll_l **link_ptr);
 int new_address_link(t_label *label, t_dll_l **link_ptr);
+char *start_by_label(char **string);
 
+/*
+**    error
+*/
+
+void		handle_error(t_asm *env, int err_code);
+
+/*
+**    free
+*/
+
+void		free_asm(t_asm *env);
 /*
 **    test
 */

@@ -43,6 +43,7 @@
 #define LABEL_CHAR				':'
 #define DIRECT_CHAR				'%'
 #define SEPARATOR_CHAR			','
+#define QUOTE_CHAR			'"'
 
 #define LABEL_CHARS				"abcdefghijklmnopqrstuvwxyz_0123456789"
 
@@ -75,12 +76,14 @@ typedef char	t_arg_type;
 # define COMMENT_LENGTH			(2048)
 # define COREWAR_EXEC_MAGIC		0xea83f3
 
-typedef struct		header_s
+typedef struct		s_header
 {
 	unsigned int		magic;
-	char				prog_name[PROG_NAME_LENGTH + 1];
+	char			prog_name[PROG_NAME_LENGTH + 1];
+	int			i_name;
 	unsigned int		prog_size;
-	char				comment[COMMENT_LENGTH + 1];
-}					header_t;
+	char			comment[COMMENT_LENGTH + 1];
+	int			i_com;
+}					t_header;
 
 #endif //CORWAR_GROUPE_OP_H
