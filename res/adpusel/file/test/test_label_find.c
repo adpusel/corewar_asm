@@ -205,6 +205,29 @@ static char *test_mode_create_3()
 	return (NULL);
 }
 
+static char *test_mode_find()
+{
+	t_dll *list = parser.label_list;
+	t_dll_l *link_exist;
+	t_dll_l *link_exist_pas;
+	t_dll_l *link_test_exist;
+	t_dll_l *link_test_exist_pas;
+
+	int retour_1 = mode_find(label_name_1, list, &link_exist);
+	new_label_link(label_name_1, address_1, &link_test_exist);
+
+	int retour_2 = mode_find("exist_pas", list, &link_exist_pas);
+	new_label_link("exist_pas", NO_ADDRESS, &link_test_exist_pas);
+
+	TEST("error --> test_mode_find -- 1",
+		 LINK_FUNC_EQ(link_exist, link_test_exist, test_label) == OK &&
+		 retour_1 == TRUE);
+	TEST("error --> test_mode_find -- 2",
+		 LINK_FUNC_EQ(link_exist_pas, link_test_exist_pas, test_label) == OK &&
+		 retour_2 == TRUE);
+	return (NULL);
+}
+
 char *all_label_find_test()
 {
 	init_list();
@@ -214,5 +237,6 @@ char *all_label_find_test()
 	mu_run_test(test_mode_create_1);
 	mu_run_test(test_mode_create_2);
 	mu_run_test(test_mode_create_3);
+	mu_run_test(test_mode_find);
 	return 0;
 }
