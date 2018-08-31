@@ -17,6 +17,9 @@ int new_label_link(const char *name, ssize_t address, t_dll_l **link_ptr);
 **    define
 */
 # define NO_ADDRESS -1
+# define REGISTRE 1
+# define DIRECT 2
+# define INDIRECT 3
 
 /*
 **	INIT
