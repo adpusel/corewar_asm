@@ -1,4 +1,4 @@
-#include "../includes/ft_asm_header.h"
+#include "all_test.h"
 
 /*------------------------------------*\
 	RET TAB
