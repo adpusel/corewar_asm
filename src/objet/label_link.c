@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/vendor.h"
+#include "asm.h"
 
 int new_label_link(const char *name, ssize_t address, t_dll_l **link_ptr)
 {

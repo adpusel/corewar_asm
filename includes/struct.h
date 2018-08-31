@@ -57,8 +57,8 @@ typedef struct		s_parser
 	int			i_char;
 	char		*current_label;
 	t_char_tab	tab;
-	t_dll		label_list;
-	t_dll		add_list;
+	t_dll		*label_list;
+	t_dll		*add_list;
 }					t_parser;
 
 typedef struct		s_treat

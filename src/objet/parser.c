@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/vendor.h"
+#include "asm.h"
 
 /**
  * initialise les deux containeur de list chainees
@@ -23,6 +23,6 @@ int init_parseur(t_parser *parser)
 
 	ret = 1
 		&& new_dll(FALSE, &parser->label_list)
-		&& new_dll(FALSE, &parser->address);
+		&& new_dll(FALSE, &parser->add_list);
 	return (ret);
 }
