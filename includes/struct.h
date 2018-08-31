@@ -52,10 +52,11 @@ typedef struct		s_parser
 {
 	t_header	header;
 	char		*line;
-	t_char_tab	tab;
-	int			step;
 	int			i_line;
+	int			step;
 	int			i_char;
+	char		*current_label;
+	t_char_tab	tab;
 	t_dll		label_list;
 	t_dll		add_list;
 }					t_parser;

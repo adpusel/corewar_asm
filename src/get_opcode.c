@@ -6,7 +6,7 @@
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2018/08/23 15:30:38 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/31 12:45:52 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,9 +137,6 @@ int manage_label_dll(const char *label, t_parser parser)
 	return (FALSE);
 }
 
-
-
-
 // TODO gere l'avancement dans les tab de char ? le penser comme un obj
 // quand j'ecris dedans elle keep l'octet ou je suis,
 // le dernier ordre pour cet l'address de :
@@ -159,10 +156,7 @@ int parse_line(const t_parser parser)
 	// si label ok ==> je fais :
 	// fonction pour check le peter
 	// function
-	//fasfa;sdjf
-
 	return (TRUE);
 }
 
 // la fonction de recherche de mon label si je le trouve :
-

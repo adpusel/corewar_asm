@@ -37,17 +37,20 @@ void	check_file(t_asm *env);
 void			parse_file(t_asm *env);
 void			parse_name(t_asm *env);
 void			parse_comment(t_asm *env);
+void			parse_op(t_asm *env);
+void			parse_label(t_asm *env, char **line);
+void 			asm_skip_spaces(char **line);
 
 /*
 **    label
 */
-int start_by_label(char **string, char **out);
-int init_parseur(t_parser *parser);
-int search_label_in_dll(t_dll_l *link, void *label_name_ptr);
-int mode_create(char *label_name, ssize_t address, t_dll *label_list,
-	t_dll_l **link_ptr);
-int mode_find(char *label_name, t_dll *label_list, t_dll_l **link_ptr);
-int new_address_link(t_label *label, t_dll_l **link_ptr);
+int				start_by_label(char **string, char **out);
+int				init_parseur(t_parser *parser);
+int				search_label_in_dll(t_dll_l *link, void *label_name_ptr);
+int				mode_create(char *label_name, ssize_t address, t_dll *label_list,
+   				t_dll_l **link_ptr);
+int				mode_find(char *label_name, t_dll *label_list, t_dll_l **link_ptr);
+int				new_address_link(t_label *label, t_dll_l **link_ptr);
 
 /*
 **    error
