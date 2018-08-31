@@ -11,7 +11,7 @@ set(SOURCE_FILES
         src/get_opcode.c
         src/op.c
         src/objet/parser.c
-        src/manage_dll_label.c src/codage_octet.c src/objet/address_link.c test/test_address.c includes/vendor.h)
+        src/manage_dll_label.c src/codage_octet.c src/objet/address_link.c test/test_address.c)
 
 add_library(Corwar_lib STATIC
         ${OBJ_FILE}
@@ -20,4 +20,5 @@ add_library(Corwar_lib STATIC
         ${DEBUG}
         )
 
+target_include_directories(libft PUBLIC includes)
 target_link_libraries(Corwar_lib libft)
