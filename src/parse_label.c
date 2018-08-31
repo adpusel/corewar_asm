@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:46:41 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/31 13:32:38 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/31 15:42:53 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,6 @@ static int	is_good_label(char *string)
 		return (FALSE);
 }
 
-/*
- * TODO: 
- *
- * Ajouter	-current_label a la struct parser
- *			-ERROR_LABEL
- *			
- * 
- * Free le pointeur current_label dans free.c
- *
- */
-
 void		parse_label(t_asm *env, char **line)
 {
 	size_t ret;
@@ -46,7 +35,10 @@ void		parse_label(t_asm *env, char **line)
 	if (is_good_label(*line) == TRUE)
 	{
 		ret = ft_strclen(*line, ':');
-		ft_dup_memory((void **)&(env->parser.current_label), *line, ret);
+		//printf("line=%s\nret=%zu\n", *line, ret);
+		ft_dup_memory((void **)&(env->parser.current_label), *line, ret + 1);
+		env->parser.current_label[ret] = '\0';
+		//printf("label=%s\n", env->parser.current_label);
 		*line += ret;
 	}
 }
