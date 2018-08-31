@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2018/08/31 13:52:28 by plamusse         ###   ########.fr       */
+/*   Updated: 2017/11/16 12:46:07 by adpusel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library_headerd.h"
+# include <unistd.h>
 
-
-int ft_dup_memory(void **dest, const void *src, size_t size)
+ssize_t ft_strclen(char *s, char c)
 {
-	void *mem;
-	static int ret;
+	size_t i;
 
-	if (src == NULL)
-	    return (PTR_NULL);
-	mem = malloc(size == 0 ? 1 : size);
-	if (mem == NULL)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		ret = MEM_LACK;
-		*dest = NULL;
+		if (s[i] == c)
+			return (i);
+		i++;
 	}
-	else
-	{
-		ret = TRUE;
-		ft_memcpy(mem, src, size);
-		*dest = mem;
-	}
-	return (ret);
+	return (-1);
 }

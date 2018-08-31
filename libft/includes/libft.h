@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:37:21 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/28 17:50:19 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/31 15:04:53 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,19 @@ typedef	struct		s_list
 **		STRING
 */
 
+int	check_char_into_str(char *str, char c);
 void	ft_putendl_fd(char const *s, int fd);
 int		ft_strcmp(const char *s1, const char *s2);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
-char		*ft_strdup(const char *s1);
+ssize_t ft_strclen(char *s, char c);
+int		ft_dup_memory(void **dest, const void *src, size_t size);
+char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strnew(size_t size);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
-int			ft_skip_spaces(char *str);
+int		ft_skip_spaces(char *str);
 int		get_next_line(int const fd, char **line);
 
 /*

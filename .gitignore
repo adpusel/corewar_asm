@@ -12,6 +12,8 @@ obj/
 *.swp
 *.dSYM
 .idea/
+libft.a
+import_lib.h
 cmake-build-debug/
 .DS_Store
 vendor.h

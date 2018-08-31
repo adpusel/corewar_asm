@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/08/28 17:50:31 by plamusse         ###   ########.fr        #
+#    Updated: 2018/08/31 15:05:10 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,10 @@ OBJ_DIR		= ./obj
 # src / obj files
 
 SRC = ft_putendl_fd.c\
+	  check_char_into_str.c\
 	  ft_strlen.c\
 	  ft_strcmp.c\
+	  ft_strclen.c\
 	  ft_strdup.c\
 	  ft_strjoin.c\
 	  ft_strnew.c\
@@ -29,6 +31,7 @@ SRC = ft_putendl_fd.c\
 	  ft_strchr.c\
 	  ft_strnequ.c\
 	  ft_skip_spaces.c\
+	  ft_dup_memory.c\
 	  ft_memdel.c\
 	  ft_memcpy.c\
 	  ft_memset.c\
