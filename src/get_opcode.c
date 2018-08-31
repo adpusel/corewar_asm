@@ -12,39 +12,6 @@
 
 # include "../includes/ft_asm_header.h"
 
-// check si op est dans le tab op_tab;
-// comment verifier simplement avec le tab ?
-
-// 1 --> verifier get_op et retourner position
-// 2 --> compter le nombre de parametre
-// 3 --> verifier les paramemter
-// 4 --> stoquer la taille de return
-//
-// 5 --> fonctiom
-
-// 1 --> champ max size == la taille des champ
-// je dois fermer et ouvrir le fichier a chaque fois c'est chiant
-// je commence a faire les arguments avec les ptr
-// je dois check les info avec le tab, c'est lui qui fait tout !
-// les chamion doivent bien avoir une taille max puisque c'est celle de la memoir, c'est stupide de faire autrement !
-// 2 --> commecer a faire le tab.
-
-
-// faire des tests pour chaque function de TEST avec les arguments --> drive TEST dev --> pour la premiere fois
-// ce nombre est l'id de tout les el de verification de ma struck
-
-
-//// cherche dans la liste si label existe
-//int is_label_in_list(t_dll_l link, void *name)
-//{
-//	t_label label;
-//
-//	label = link->content;
-//	if (ft_strcmp(label->name, name) == FALSE)
-//		return (TRUE);
-//	return (FALSE);
-//}
-
 int get_int_op_tab(char *op_searched)
 {
 	int i = 0;
