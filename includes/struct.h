@@ -41,16 +41,36 @@ typedef struct		s_char_tab
 	size_t		where;
 }					t_char_tab;
 
+typedef struct		s_file
+{
+	int			fd;
+	int			ret;
+	char		*name;
+}					t_file;
+
 typedef struct		s_parser
 {
-	const char	*line;
+	t_header	header;
+	char		*line;
+	t_char_tab	tab;
 	int			step;
 	int			i_line;
 	int			i_char;
-	t_char_tab	tab;
-	char		*where;
-	t_dll		*label_list;
-	t_dll		*address;
+	t_dll		label_list;
+	t_dll		add_list;
 }					t_parser;
+
+typedef struct		s_treat
+{
+	char		*champ;
+	int			i;
+}					t_treat;
+
+typedef struct		s_asm
+{
+	t_file		file;
+	t_parser	parser;
+	t_treat		treat;
+}					t_asm;
 
 #endif

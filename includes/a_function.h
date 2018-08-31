@@ -48,7 +48,6 @@ int mode_create(char *label_name, ssize_t address, t_dll *label_list,
 	t_dll_l **link_ptr);
 int mode_find(char *label_name, t_dll *label_list, t_dll_l **link_ptr);
 int new_address_link(t_label *label, t_dll_l **link_ptr);
-char *start_by_label(char **string);
 
 /*
 **    error

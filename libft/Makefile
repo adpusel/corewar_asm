@@ -33,7 +33,13 @@ SRC = ft_putendl_fd.c\
 	  ft_memcpy.c\
 	  ft_memset.c\
 	  print_memory.c\
-	  get_next_line.c
+	  get_next_line.c\
+	  dll_add.c \
+      dll_construct.c \
+      dll_drop_index.c \
+      dll_drop_link.c \
+      dll_func.c \
+
 
 OBJ			= $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

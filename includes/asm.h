@@ -15,6 +15,9 @@
 
 # include "op.h"
 # include "libft.h"
+# include "ft_library_headerd.h"
+#include "struct.h"
+
 //# include "../../libft/header/struct/dll_struct.h"
 //# include "struct.h"
 //# include "string.h"
@@ -47,37 +50,6 @@ extern t_op g_op_tab[17];
 # define ERROR_TEST			-7
 # define ERROR_QUOTE		-8
 # define ERROR_HEADER		-9
-
-typedef struct		s_file
-{
-	int			fd;
-	int			ret;
-	char		*name;
-}					t_file;
-
-typedef struct		s_parser
-{
-	t_header	header;
-	char		*line;
-	int			step;
-	int			i_line;
-	int			i_char;
-//	t_dll		label_list;
-//	t_dll		add_list;
-}					t_parser;
-
-typedef struct		s_treat
-{
-	char		*champ;
-	int			i;
-}					t_treat;
-
-typedef struct		s_asm
-{
-	t_file		file;
-	t_parser	parser;
-	t_treat		treat;
-}					t_asm;
 
 # include "a_function.h"
 
