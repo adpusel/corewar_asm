@@ -6,21 +6,22 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 12:18:43 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/30 15:05:14 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/31 13:04:11 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
+void asm_skip_spaces(char **line)
+{
+	while (check_char_into_str(SKIP_ASM_CHAR, **line) == TRUE)
+		++(*line);
+}
+
 void		parse_op(t_asm *env)
 {
+	char		*line;
 
-	op = ft_strsplit(env->parser.line);
-	if (!op)
-		handle_error(env, ERROR_MALLOC);
-	i = 0;
-	if (is_label(op[i]))
-		handle_label(env, op[i++]);
-
-	
+	line = (char*)env->parser.line;
+	parse_label(env, &line);
 }
