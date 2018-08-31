@@ -11,6 +11,8 @@ int all_test()
 		result = all_label_find_test();
 	if (result == NULL)
 		result = all_address_test();
+	if (result == NULL)
+		result = all_get_op_test();
 
 	if (result != 0)
 	{

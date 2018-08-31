@@ -21,10 +21,15 @@ int new_label_link(const char *name, ssize_t address, t_dll_l **link_ptr);
 # define DIRECT 2
 # define INDIRECT 3
 
+
+/*
+**    octet de codage
+*/
+unsigned char get_op(int p1, int p2, int p3);
+
 /*
 **	INIT
 */
-
 void	init_asm(t_asm *env);
 
 /*

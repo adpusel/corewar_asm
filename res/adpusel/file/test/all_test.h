@@ -13,6 +13,6 @@
 char *all_label_test();
 char *all_label_find_test();
 char *all_address_test();
-
+char *all_get_op_test();
 
 #endif
