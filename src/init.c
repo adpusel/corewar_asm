@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 14:19:55 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/30 12:30:00 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/31 15:26:01 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void		init_parser(t_parser *parser)
 	parser->step = 0;
 	parser->i_line = 0;
 	parser->i_char = 0;
+	parser->current_label = NULL;
 //	parser->label_list = NULL;
 //	parser->add_list = NULL;
 }
