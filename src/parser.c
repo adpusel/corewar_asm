@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:56:20 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/31 15:53:15 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/31 16:30:45 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void			parse_file(t_asm *env)
 			parse_comment(env);
 		else if (env->parser.step == 2)
 			parse_op(env);
-		free(tmp);
+		ft_memdel((void**)&tmp);
 	}
 	if (env->file.ret < 0)
 		handle_error(env, ERROR_FD);
