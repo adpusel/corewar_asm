@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:46:41 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/31 12:47:07 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/31 13:32:38 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	is_good_label(char *string)
  *
  */
 
-static int	parse_label(t_asm *env, char **line)
+void		parse_label(t_asm *env, char **line)
 {
 	size_t ret;
 

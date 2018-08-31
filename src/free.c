@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 15:30:13 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/30 12:34:24 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/31 13:33:56 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	free_asm(t_asm *env)
 {
 	free_gnl(env);
 	ft_memdel((void**)&(env->treat.champ));
+	ft_memdel((void**)&(env->parser.current_label));
 }
