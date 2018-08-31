@@ -18,7 +18,7 @@ unsigned char get_op(int p1, int p2, int p3)
 
 	oc_codage = 0;
 	oc_codage += p1;
-	oc_codage = oc_codage << 2;
+	oc_codage = oc_codage << 2 ;
 	oc_codage += p2;
 	oc_codage = oc_codage << 2;
 	oc_codage += p3;
