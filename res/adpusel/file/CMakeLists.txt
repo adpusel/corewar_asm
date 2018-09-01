@@ -11,7 +11,7 @@ add_library(Corwar_lib STATIC
         ${SOURCES_FILES}
         ${TEST}
         ${DEBUG}
-        )
+        src/depreciate.c src/get_op.c)
 
 target_link_libraries(Corwar_lib libft)
 target_link_libraries(Corwar_lib lib_commun)
