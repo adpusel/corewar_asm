@@ -12,9 +12,9 @@
 
 #include "asm.h"
 
-void asm_skip_spaces(char **line)
+void asm_skip_spaces(char **line, char *escape_str)
 {
-	while (check_char_into_str(SKIP_ASM_CHAR, **line) == TRUE)
+	while (check_char_into_str(escape_str, **line) == TRUE)
 		++(*line);
 }
 
@@ -26,7 +26,7 @@ void			parse_file(t_asm *env)
 	{
 		env->parser.i_line++;
 		tmp = env->parser.line;
-		asm_skip_spaces(&(env->parser.line));
+		asm_skip_spaces(&(env->parser.line), SKIP_ASM_CHAR);
 		if (env->parser.line && !*(env->parser.line))
 			;
 		else if (env->parser.step == 0)
