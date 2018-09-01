@@ -8,6 +8,7 @@ int all_test()
 
 	char *result = NULL;
 	// TODO : reecrire les test de label
+	// TODO : add test avec letrre dans Label char
 //	result = all_label_test();
 //	if (result == NULL)
 		result = all_label_find_test();

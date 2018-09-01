@@ -16,7 +16,8 @@ static int	is_good_label(char *string)
 {
 	if (check_char_into_str(LABEL_CHARS, *string) == TRUE)
 	{
-		while (check_char_into_str(LABEL_CHARS, *string) == TRUE)
+		while (check_char_into_str(LABEL_CHARS, *string) == TRUE &&
+		 check_char_into_str(LABEL_CHARS, *string) == TRUE)
 			++string;
 		if (*string == LABEL_CHAR)
 			return (TRUE);
