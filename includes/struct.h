@@ -4,19 +4,6 @@
 #include <stddef.h>
 #include "asm.h"
 
-typedef struct		s_cache_par
-{
-	int32_t			p1;
-	int32_t			p2;
-	int32_t			p3;
-	char 			coding_octet;
-	int32_t 		op_code;
-	int64_t			start_command;
-	int64_t			where_command;
-} 					t_cache_par;
-
-
-
 typedef struct s_op
 {
 	char name[6];
@@ -28,6 +15,19 @@ typedef struct s_op
 	int direct_size;
 	int other;
 } t_op;
+
+typedef struct		s_cache_par
+{
+	int32_t			p1;
+	int32_t			p2;
+	int32_t			p3;
+	char 			coding_octet;
+	int32_t 		op_code;
+	int64_t			start_command;
+	int64_t			where_command;
+	t_op			cur_op_tab;
+} 					t_cache_par;
+
 
 typedef struct		s_label_00
 {

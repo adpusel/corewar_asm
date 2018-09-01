@@ -16,7 +16,8 @@ static int	is_good_label(char *string)
 {
 	if (check_char_into_str(LABEL_CHARS, *string) == TRUE)
 	{
-		while (check_char_into_str(LABEL_CHARS, *string) == TRUE)
+		while (check_char_into_str(LABEL_CHARS, *string) == TRUE &&
+		 check_char_into_str(LABEL_CHARS, *string) == TRUE)
 			++string;
 		if (*string == LABEL_CHAR)
 			return (TRUE);
@@ -31,11 +32,18 @@ void		parse_label(t_asm *env, char **line)
 {
 	size_t ret;
 
-	asm_skip_spaces(line);
+	asm_skip_spaces(line, SKIP_ASM_CHAR);
 	if (is_good_label(*line) == TRUE)
 	{
 		ret = ft_strclen(*line, ':');
 		//printf("line=%s\nret=%zu\n", *line, ret);
+
+		/*------------------------------------*\
+		TODO : proteger parse_labal memoir
+		 tu ne recherque pas le malloc ici, dup_memory
+		 	on doit pouvoir quiter et free tout ici
+		\*------------------------------------*/
+
 		ft_dup_memory((void **)&(env->parser.current_label), *line, ret + 1);
 		env->parser.current_label[ret] = '\0';
 		//printf("label=%s\n", env->parser.current_label);

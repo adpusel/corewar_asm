@@ -12,6 +12,7 @@
 
 #include "asm.h"
 
+// TODO : ne pas oublier que le file doit finir par une new line
 int		main(int argc, char *argv[])
 {
 	t_asm	*env;

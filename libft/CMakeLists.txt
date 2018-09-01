@@ -16,6 +16,7 @@ set(SOURCE_FILES
         src/ft_strsub.c
         src/get_next_line.c
         src/print_memory.c
+        src/ft_putendl_fd.c
         )
 
 add_library(lib_commun STATIC

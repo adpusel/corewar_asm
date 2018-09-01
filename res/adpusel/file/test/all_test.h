@@ -5,7 +5,7 @@
 #ifndef CORWAR_GROUPE_ALL_TEST_H
 #define CORWAR_GROUPE_ALL_TEST_H
 
-# include "asm.h"
+ # include "asm.h"
 
 /*
 **    les test
