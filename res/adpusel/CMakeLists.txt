@@ -48,6 +48,6 @@ add_subdirectory(file)
 #*------------------------------------*\
 #    linking
 #*------------------------------------*/
-target_link_libraries(Corewar_run Corwar_lib)
+target_link_libraries(Corewar_run Corwar_lib )
 target_link_libraries(Corewar_run libft)
 target_link_libraries(Corewar_run lib_commun)
