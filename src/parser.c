@@ -20,7 +20,7 @@ void asm_skip_spaces(char **line, char *escape_str)
 
 void			parse_file(t_asm *env)
 {
-	char	*tmp;
+	char	*tmp ;
 
 	while ((env->file.ret = get_next_line(env->file.fd, &(env->parser.line))) > 0)
 	{

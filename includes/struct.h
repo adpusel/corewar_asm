@@ -18,7 +18,7 @@ typedef struct s_op
 
 typedef struct		s_cache_par
 {
-	int32_t			p1;
+	int32_t			p1 ;
 	int32_t			p2;
 	int32_t			p3;
 	char 			coding_octet;
