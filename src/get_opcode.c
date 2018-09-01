@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/ft_asm_header.h"
+# include "asm.h"
 
 int get_int_op_tab(char *op_searched)
 {

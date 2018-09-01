@@ -12,16 +12,27 @@
 
 # include "ft_asm_header.h"
 
-unsigned char get_op(int p1, int p2, int p3)
-{
-	unsigned char oc_codage;
+// 1 je boucle sur les char
+// 2 je check les param et les stock dans un tab de char
+// 	3 j'itere avec des filtres binaire sur le nb de parametre et check if true
+// 4 en fonction de l'octet de codage je check la size de mon truc
+//
+//
+// quelle peuvent etre les differentes string dans les arguments ?
+// la positions des label :
+// les ordre sont toujour de la form  : [label] ordre p1,p2,p3 && sur une line
+// jamais d'espace entre les separateurs r et % || %:  // %r1 -> not work
+// 	f
+// 1 ==> on dit que le label est check // il ne faut une struc pour
+// valider les info
 
-	oc_codage = 0;
-	oc_codage += p1;
-	oc_codage = oc_codage << 2;
-	oc_codage += p2;
-	oc_codage = oc_codage << 2;
-	oc_codage += p3;
-	oc_codage = oc_codage << 2;
-	return (oc_codage);
+
+
+
+
+int     test_parseur()
+{
+
+
+	return (TRUE);
 }

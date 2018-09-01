@@ -14,14 +14,9 @@
 # define ASM_H
 
 # include "op.h"
-# include "import_lib.h"
+# include "libft.h"
 # include "ft_library_headerd.h"
 #include "struct.h"
-
-//# include "../../libft/header/struct/dll_struct.h"
-//# include "struct.h"
-//# include "string.h"
-//# include "ft_library_headerd.h"
 
 extern t_op g_op_tab[17];
 
