@@ -29,8 +29,11 @@ set(REPO "file/")
 #*------------------------------------*\
 #    -- LIB FT FILE --
 #*------------------------------------*/
-include_directories(libft)
+#include_directories(libft)
 add_subdirectory(libft)
+
+#include_directories(proj_lib)
+add_subdirectory(proj_lib)
 
 #*------------------------------------*\
 #    project file
@@ -45,5 +48,6 @@ add_subdirectory(file)
 #*------------------------------------*\
 #    linking
 #*------------------------------------*/
-target_link_libraries(Corewar_run Corwar_lib)
+target_link_libraries(Corewar_run Corwar_lib )
 target_link_libraries(Corewar_run libft)
+target_link_libraries(Corewar_run lib_commun)
