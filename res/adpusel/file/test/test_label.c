@@ -37,7 +37,8 @@ static char *return_good_label()
 	ret_3 = start_by_label(&line3, &str_ret_3);
 
 	TEST("error --> label start good 1",
-		 STR_EQ(str_ret_1, label) && ret_1 == TRUE);
+		 STR_EQ(str_ret_1, label) == OK && ret_1 == TRUE);
+	printf("%s %s\n",str_ret_1, label);
 	TEST("error --> label start good 2",
 		 STR_EQ(str_ret_2, label) && ret_2 == TRUE);
 	TEST("error --> label start good 3",
