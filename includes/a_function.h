@@ -47,7 +47,7 @@ void			parse_name(t_asm *env);
 void			parse_comment(t_asm *env);
 void			parse_op(t_asm *env);
 void			parse_label(t_asm *env, char **line);
-void asm_skip_spaces(char **line, char *escape_str);
+void			asm_skip_spaces(char **line, char *escape_str);
 
 /*
 **    label
@@ -59,6 +59,12 @@ int				mode_create(char *label_name, ssize_t address, t_dll *label_list,
    				t_dll_l **link_ptr);
 int				mode_find(char *label_name, t_dll *label_list, t_dll_l **link_ptr);
 int				new_address_link(t_label *label, t_dll_l **link_ptr);
+
+
+/*
+**    parser_op
+*/
+int test_parseur(char *str, t_cache_par *par);
 
 /*
 **    error

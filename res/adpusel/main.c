@@ -6,18 +6,7 @@
 // str_find_first_char
 // je retourne la premiere fois que je trouve l'occurence d'un de mes char
 
-char *str_find_first_char(char *str, char *char_researched)
-{
-	if (str == NULL)
-	    return (NULL);
-	while (*str)
-	{
-	    if (check_char_into_str(char_researched, *str) == TRUE)
-			return(str);
-	    ++str;
-	}
-	return (NULL);
-}
+
 
 
 int main()

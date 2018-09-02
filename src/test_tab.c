@@ -46,7 +46,6 @@ size_t check_nb_argv(char *curr_line_arg, size_t nb_required)
 	return (a == nb_required ? TRUE : FAIL);
 }
 
-
 // les seul separateur valable apres instructions sont :
 // espaces , % // tout le reste est une err
 // le separateur d'instruction est \n
@@ -54,11 +53,24 @@ size_t check_nb_argv(char *curr_line_arg, size_t nb_required)
 //	la vm de zaz se stop quand il y a une , elle detect les %  beug avec ces truc
 // j'iniore tout ce qu'il y a derrire un commentaire d'ou le concepte de ligne
 // ma fonction pour les ordre et l'architecture du programme
-int     test_parseur()
+int test_parseur(char *str, t_cache_par *par)
 {
+	static char sep_char[4] = {' ', SEPARATOR_CHAR, DIRECT_CHAR, 0};
+	size_t size_instruct;
+	char *end_instruct;
+	int ret;
+	(void) par;
+	(void)ret;
+
+	end_instruct = str_find_first_char(str, sep_char);
+	size_instruct = end_instruct - str;
+	ret = ft_str_n_dup(&par->name_op, str, size_instruct);
+	printf("%ld \n", size_instruct);
+
+
 	// extraire l'ordre --> je le copy dans le cache,
-		// je dois pouvoir fair la difference entre les ptr des deux chaines
-		// echap les param, j'extrait avec comme separateur _ % //
+	// je dois pouvoir fair la difference entre les ptr des deux chaines
+	// echap les param, j'extrait avec comme separateur _ % //
 	//
 	// s'il existe le copier dans optab ? dans op_tab
 
