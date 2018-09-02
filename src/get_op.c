@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "asm.h"
+# include "../includes/ft_asm_header.h"
 
 int get_int_op_tab(char *op_searched)
 {
@@ -67,7 +67,7 @@ int is_good_label(char *string)
 
 
 // TODO: fonction de debug de mon label
-	// comme
+// comme
 
 /**
  *
@@ -127,3 +127,4 @@ int parse_line(const t_parser parser)
 }
 
 // la fonction de recherche de mon label si je le trouve :
+

@@ -6,22 +6,52 @@
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2018/08/23 15:30:38 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/08/31 12:45:52 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_asm_header.h"
+# include "asm.h"
 
-unsigned char get_op(int p1, int p2, int p3)
+void asm_clean(char **string_ptr)
 {
-	unsigned char oc_codage;
 
-	oc_codage = 0;
-	oc_codage += p1;
-	oc_codage = oc_codage << 2;
-	oc_codage += p2;
-	oc_codage = oc_codage << 2;
-	oc_codage += p3;
-	oc_codage = oc_codage << 2;
-	return (oc_codage);
+	while (check_char_into_str(SKIP_ASM_CHAR, **string_ptr ) == TRUE)
+	{
+		++(*string_ptr);
+	}
+}
+
+int is_good_label(char *string)
+{
+	if (check_char_into_str(LABEL_CHARS, *string) == TRUE)
+	{
+		while (check_char_into_str(LABEL_CHARS, *string) == TRUE)
+			++string;
+		if (*string == LABEL_CHAR)
+			return (TRUE);
+		else
+			return (FALSE);
+	}
+	else
+		return (FALSE);
+}
+
+
+int start_by_label(char **string, char **out)
+{
+	size_t ret;
+
+	asm_clean(string);
+	if (is_good_label(*string) == TRUE)
+	{
+		ret = ft_strclen(*string, ':');
+		ft_dup_memory((void **)&out, *string, ret);
+		*string += ret;
+		return (TRUE);
+	}
+	else
+	{
+		*out = NULL;
+		return (FALSE);
+	}
 }
