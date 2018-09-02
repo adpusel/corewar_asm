@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 15:30:13 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/31 13:33:56 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/02 19:08:46 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	free_gnl(t_asm *env)
 {
+	ft_memdel((void**)&(env->parser.line));
 	if (env->file.ret > 0)
 	{
 		while ((env->file.ret = get_next_line(env->file.fd, &(env->parser.line))) > 0)
-			free(env->parser.line);
+			ft_memdel((void**)&(env->parser.line));
 		if (env->file.ret < 0)
 			handle_error(env, ERROR_FD);
 	}

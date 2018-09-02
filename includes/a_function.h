@@ -45,7 +45,7 @@ void	check_file(t_asm *env);
 void			parse_file(t_asm *env);
 void			parse_name(t_asm *env);
 void			parse_comment(t_asm *env);
-void			parse_op(t_asm *env);
+void			parse_prog(t_asm *env);
 void			parse_label(t_asm *env, char **line);
 void asm_skip_spaces(char **line, char *escape_str);
 

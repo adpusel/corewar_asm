@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 15:22:35 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/29 17:27:01 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/02 19:20:06 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  **	4 - Verifier qu'il n y a rien derriere ce '"' a part des esp et de tabs
  **	
  **	5 - Faire passer le step a 1 pour lancer le travail sur le commentaire
- **		ou a -1 pour arreter la recuperation des donnees
+ **
  */
 
 static int		check_first_line(t_asm *env)
@@ -50,7 +50,7 @@ static void		check_last_line(t_asm *env, int i)
 	if (env->parser.line[i] == '\0')
 	   	env->parser.step = 1;
 	else
-		env->parser.step = ERROR;
+		handle_error(env, ERROR_HEADER);
 }
 
 void			parse_name(t_asm *env)
@@ -73,5 +73,6 @@ void			parse_name(t_asm *env)
 		header->prog_name[header->i_name++] = cur;
 	if (header->i_name > PROG_NAME_LENGTH)
 		handle_error(env, ERROR_HEADER);
-	(cur == '"') ? check_last_line(env, i++) : (header->prog_name[header->i_name++] = '\n');
+	(cur == '"') ? check_last_line(env, i++)
+			: (header->prog_name[header->i_name++] = '\n');
 }

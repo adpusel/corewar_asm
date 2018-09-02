@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:56:20 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/31 16:30:45 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/02 19:22:40 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ void			parse_file(t_asm *env)
 	{
 		env->parser.i_line++;
 		tmp = env->parser.line;
-		asm_skip_spaces(&(env->parser.line), SKIP_ASM_CHAR);
-		if (env->parser.line && !*(env->parser.line))
+		asm_skip_spaces(&tmp, SKIP_ASM_CHAR);
+		if (tmp && !*tmp)
 			;
 		else if (env->parser.step == 0)
 			parse_name(env);
 		else if (env->parser.step == 1)
 			parse_comment(env);
 		else if (env->parser.step == 2)
-			parse_op(env);
-		ft_memdel((void**)&tmp);
+			parse_prog(env);
+		ft_memdel((void**)&(env->parser.line));
 	}
 	if (env->file.ret < 0)
 		handle_error(env, ERROR_FD);
