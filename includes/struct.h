@@ -16,16 +16,20 @@ typedef struct s_op
 	int other;
 } t_op;
 
+typedef struct		s_param
+{
+	int32_t 	type;
+	int64_t		address_param;
+} 					t_param;
+
+
 typedef struct		s_cache_par
 {
-	int32_t			p1 ;
-	int32_t			p2;
-	int32_t			p3;
+	t_param			param[4];
 	char 			coding_octet;
-	int32_t 		op_code;
-	int64_t			start_command;
-	int64_t			where_command;
-	t_op			cur_op_tab;
+	int64_t			address_op;
+	int32_t 		op_code; // avoir
+	t_op			*cur_op_tab;
 } 					t_cache_par;
 
 
