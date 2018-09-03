@@ -1,32 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   struct.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/03 16:01:22 by plamusse          #+#    #+#             */
+/*   Updated: 2018/09/03 19:11:32 by plamusse         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef COREWAR_STRUCT_H
 #define COREWAR_STRUCT_H
 
 #include <stddef.h>
 #include "asm.h"
 
-typedef struct s_op
+typedef struct	s_op
 {
-	char name[6];
-	int nb_par;
-	int param[3];
-	int id;
-	int cycle;
-	char desciption[100];
-	int direct_size;
-	int other;
-} t_op;
+	char 	*name;
+	int 	nb_param;
+	int		param[3];
+	int		id;
+	int		cycle;
+	char	*desciption;
+	int		direct_size;
+	int		other;
+}				t_op;
 
-typedef struct		s_cache_par
+typedef struct	s_param
 {
-	int32_t			p1 ;
-	int32_t			p2;
-	int32_t			p3;
-	char 			coding_octet;
+	int32_t		address;
+	int32_t		size;
+	char		*label;
+	int32_t		type;
+}				t_param;
+
+typedef struct	s_instr
+{
+	int32_t			address;
+	int32_t			size;
+	char			*label;
 	int32_t 		op_code;
-	int64_t			start_command;
-	int64_t			where_command;
-	t_op			cur_op_tab;
-} 					t_cache_par;
+	char 			ocp;
+	t_param			param[3];
+	t_op			op_tab;
+} 				t_instr;
 
 
 typedef struct		s_label_00
@@ -61,14 +80,21 @@ typedef struct		s_file
 	char		*name;
 }					t_file;
 
+typedef struct		s_index
+{
+	int			line;
+	int			character;
+}					t_index;
+
 typedef struct		s_parser
 {
 	t_header	header;
 	char		*line;
-	int			i_line;
+	t_index		index;
 	int			step;
-	int			i_char;
 	char		*current_label;
+	t_instr		current_op;
+	t_list		*op_list;
 	t_char_tab	tab;
 	t_dll		*label_list;
 	t_dll		*add_list;

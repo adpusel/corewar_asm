@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/31 15:00:19 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/03 17:04:00 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ extern t_op g_op_tab[17];
 # define ERROR_TEST			-7
 # define ERROR_QUOTE		-8
 # define ERROR_HEADER		-9
+# define ERROR_OP_NAME		-10
 
 # include "a_function.h"
 

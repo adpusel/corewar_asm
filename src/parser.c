@@ -6,17 +6,11 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:56:20 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/02 19:22:40 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/03 19:12:19 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-
-void asm_skip_spaces(char **line, char *escape_str)
-{
-	while (check_char_into_str(escape_str, **line) == TRUE)
-		++(*line);
-}
 
 void			parse_file(t_asm *env)
 {
@@ -24,7 +18,7 @@ void			parse_file(t_asm *env)
 
 	while ((env->file.ret = get_next_line(env->file.fd, &(env->parser.line))) > 0)
 	{
-		env->parser.i_line++;
+		env->parser.index.line++;
 		tmp = env->parser.line;
 		asm_skip_spaces(&tmp, SKIP_ASM_CHAR);
 		if (tmp && !*tmp)

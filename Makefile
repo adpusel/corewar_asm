@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/09/02 19:24:38 by plamusse         ###   ########.fr        #
+#    Updated: 2018/09/03 17:12:25 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,14 @@ SRC			=	main.c \
 				init.c\
 				check_file.c\
 				parser.c\
+				parser_helper.c\
 				parse_name.c\
 				parse_comment.c\
 				parse_prog.c\
 				parse_label.c\
+				parse_op.c\
 				free.c\
+				op.c\
 				handle_error.c
 
 OBJ			= $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))

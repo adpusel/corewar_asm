@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:46:41 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/02 18:48:30 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/03 14:31:12 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ void		parse_label(t_asm *env, char **line)
 				, ret + 1);
 		if (err == MEM_LACK)
 			handle_error(env, ERROR_MALLOC);
-		env->parser.current_label[ret] = '\0';
+		env->parser.current_label[ret++] = '\0';
 		//printf("label=%s\n", env->parser.current_label);
 		*line += ret;
+		asm_skip_spaces(line, SKIP_ASM_CHAR);
 	}
 }
