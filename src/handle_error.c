@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:18:32 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/04 12:56:00 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/04 14:54:22 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ void		handle_error(t_asm *env, int err_code)
 		ft_putendl_fd("Y a un pb avec le nom de l'op, non ? tu m'as soulay", 2);
 	else if (err_code == ERROR_PARAM)
 		ft_putendl_fd("les params c'est pas ca", 2);
+	else if (err_code == ERROR_REG)
+		ft_putendl_fd("pour les registres on fait comment ?", 2);
 	exit(-1);
 }
