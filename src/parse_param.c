@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 10:24:55 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/04 16:58:07 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/04 18:33:55 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	parse_register(t_asm *env, char **line, t_param *param)
 		param->type = T_REG;
 		param->address = env->treat.prog_size + env->parser.current_op.size;
 		param->size = 1;
+		printf("%i\n", param->value);
 	}
 	else
 		handle_error(env, ERROR_REG);
@@ -31,7 +32,7 @@ static void	parse_register(t_asm *env, char **line, t_param *param)
 		nreg = nreg / 10;
 		(*line)++;
 	}
-	printf("after_reg=%c\n", **line);
+	//printf("after_reg=%c\n", **line);
 }
 
 static void	check_param(t_asm *env, char **line, t_param *param)
@@ -69,7 +70,7 @@ void		parse_param(t_asm *env, char **line)
 		if (**line)
 		{
 			asm_skip_spaces(line, SKIP_SPACES_TABS);
-			printf("after_separator=%c\n", **line);
+//			printf("after_separator=%c\n", **line);
 			if ((i < nb_param && **line != SEPARATOR_CHAR) || (i == nb_param && **line))
 				handle_error(env, ERROR_PARAM);
 			else if (**line)
