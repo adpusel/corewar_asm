@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/03 17:04:00 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/04 12:50:47 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ extern t_op g_op_tab[17];
 # define SUCCESS 0
 # define OP_TAB_SIZE 17
 # define SKIP_ASM_CHAR " \t\n"
+# define SKIP_SPACES_TABS " \t"
 # define PROG_NAME_STRING ".name"
 # define PROG_NAME_STRLEN 5
 # define COMMENT_STRING ".comment"
@@ -46,6 +47,7 @@ extern t_op g_op_tab[17];
 # define ERROR_QUOTE		-8
 # define ERROR_HEADER		-9
 # define ERROR_OP_NAME		-10
+# define ERROR_PARAM		-11
 
 # include "a_function.h"
 

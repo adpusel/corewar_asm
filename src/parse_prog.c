@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 19:25:00 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/03 17:18:55 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/04 14:15:47 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void		parse_prog(t_asm *env)
 	{
 		ft_memset((void*)&(env->parser.current_op), 0, sizeof(t_instr));
 		parse_op(env, &line);
-		//parse_param(env, line);
+		parse_param(env, &line);
+		env->treat.prog_size += env->parser.current_op.size;
 		//	printf("%c\n", *line);
-		ft_memdel((void**)&(env->parser.current_label));
 	}
 }

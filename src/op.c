@@ -6,7 +6,7 @@
 /*   By: zaz <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:43:01 by zaz               #+#    #+#             */
-/*   Updated: 2018/09/03 17:25:42 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/04 13:50:44 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_op g_op_tab[OP_TAB_SIZE] =
  { //name	nb_param   param									id/opcode,  duree, desciption						octet_pard  size ?
   { "live",  1, { T_DIR },                                               1,  10,   "alive",                                	0, 	0 },
+  { "ldi",   3, { T_REG | T_DIR | T_IND, T_DIR | T_REG,         T_REG }, 10, 25, "load index",                           	1, 	1 },
   { "ld",    2, { T_DIR | T_IND,                 T_REG },                2,  5,    "load",                                 	1, 	0 },
   { "sti",   3, { T_REG, T_REG | T_DIR | T_IND, T_DIR | T_REG },         11, 25, "store index",                          	1, 	1 },
   { "st",    2, { T_REG, T_IND | T_REG },                                3,  5,    "store",                                	1, 	0 },
@@ -24,7 +25,6 @@ t_op g_op_tab[OP_TAB_SIZE] =
   { "or",    3, { T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG }, 7,  6, "ou  (or   r1, r2, r3   r1 | r2 -> r3", 	1, 	0 },
   { "xor",   3, { T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG }, 8,  6, "ou (xor  r1, r2, r3   r1^r2 -> r3",    	1, 	0 },
   { "zjmp",  1, { T_DIR },                                               9,  20,   "jump if zero",                         	0, 	1 },
-  { "ldi",   3, { T_REG | T_DIR | T_IND, T_DIR | T_REG,         T_REG }, 10, 25, "load index",                           	1, 	1 },
   { "fork",  1, { T_DIR },                                               12, 800,  "fork",                                 	0, 	1 },
   { "lldi",  3, { T_REG | T_DIR | T_IND, T_DIR | T_REG,         T_REG }, 14, 50, "long load index",                      	1, 	1 },
   { "lld",   2, { T_DIR | T_IND,                 T_REG },                13, 10,   "long load",                            	1, 	0 },

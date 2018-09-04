@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 15:55:36 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/03 19:17:26 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/04 14:14:25 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,18 @@ static void	get_current_op_on_op_tab(t_asm *env, char **line)
 
 void		parse_op(t_asm *env, char **line)
 {
-	//t_op	*op_tab;
-	//t_instr	*current_op;
+	t_instr	*current_op;
 
 	get_current_op_on_op_tab(env, line);
-	printf("name=%s\n", env->parser.current_op.op_tab.name);
-	//current_op = env->parser.current_op;
-	//current_op->address = 
-	
+	//printf("name=%s\n", env->parser.current_op.op_tab.name);
+	current_op = &env->parser.current_op;
+	current_op->address = env->treat.prog_size;
+	current_op->size = 1;
+	current_op->label = env->parser.current_label;
+	env->parser.current_label = NULL;
+	if (current_op->op_tab.ocp)
+		current_op->size = 2;
+	else
+		current_op->size = 1;
+
 }

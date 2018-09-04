@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:01:22 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/03 19:11:32 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/04 14:13:38 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef struct	s_op
 	int		id;
 	int		cycle;
 	char	*desciption;
+	int		ocp;
 	int		direct_size;
-	int		other;
 }				t_op;
 
 typedef struct	s_param
@@ -39,10 +39,9 @@ typedef struct	s_param
 typedef struct	s_instr
 {
 	int32_t			address;
-	int32_t			size;
 	char			*label;
-	int32_t 		op_code;
 	char 			ocp;
+	int32_t			size;
 	t_param			param[3];
 	t_op			op_tab;
 } 				t_instr;
@@ -103,7 +102,7 @@ typedef struct		s_parser
 typedef struct		s_treat
 {
 	char		*champ;
-	int			i;
+	int			prog_size;
 }					t_treat;
 
 typedef struct		s_asm
