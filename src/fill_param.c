@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 14:44:26 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/06 16:02:05 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/06 17:06:30 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,24 @@ static void	parse_param_label(t_asm *env, char **line, t_param *param)
 			, len + 1);
 	if (err == MEM_LACK)
 		handle_error(env, ERROR_MALLOC);
-	param->label[len++] = '\0';
+	param->label[len] = '\0';
 	printf("label=%s\n", param->label);
 	*line += len;
 }
 
 static void	parse_param_value(t_asm *env, char **line, t_param *param, int type)
 {
-	int		value;
+	long long	value;
 
-	value = ft_atoi(*line);
+	value = ft_atoll(*line);
 	if ((type & T_REG) && (value < 0 || value > REG_NUMBER))
 		handle_error(env, ERROR_REG);
 	param->value = value;
-	printf("value=%i\n", param->value);
-	while (value)
-	{
-		value = value / 10;
+	printf("value=%lli\n", param->value);
+	if (**line == '-')
+		++(*line);
+	while (ft_isdigit(**line))
 		(*line)++;
-	}
 }
 
 static void	fill_param_size(t_asm *env, t_param *param, int type)
@@ -71,6 +70,7 @@ static void	fill_param_size(t_asm *env, t_param *param, int type)
 		else
 			param->size = 4;
 	}
+	env->parser.current_op.size += param->size;
 }
 
 void	fill_param(t_asm *env, char **line, t_param *param, int type)

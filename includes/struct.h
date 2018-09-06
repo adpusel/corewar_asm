@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:01:22 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/04 18:33:56 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/06 16:31:42 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct	s_param
 {
 	int32_t		address;
 	int32_t		size;
-	int32_t		value;
+	int64_t		value;
 	char		*label;
 	int32_t		type;
 }				t_param;

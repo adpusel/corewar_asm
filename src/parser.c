@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:56:20 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/03 19:12:19 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/06 16:40:49 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void			parse_file(t_asm *env)
 			parse_prog(env);
 		ft_memdel((void**)&(env->parser.line));
 	}
+	printf("prog_size=%i\n", env->treat.prog_size);
 	if (env->file.ret < 0)
 		handle_error(env, ERROR_FD);
 	else if (env->parser.step <= ERROR)
