@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/08/31 15:05:10 by plamusse         ###   ########.fr        #
+#    Updated: 2018/09/06 15:56:46 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ OBJ_DIR		= ./obj
 
 SRC = ft_putendl_fd.c\
 	  check_char_into_str.c\
+	  ft_atoi.c\
+	  ft_isdigit.c\
+	  ft_isspace.c\
 	  ft_strlen.c\
 	  ft_strcmp.c\
 	  ft_strclen.c\

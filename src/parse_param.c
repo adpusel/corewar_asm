@@ -6,46 +6,28 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 10:24:55 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/04 18:33:55 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:52:43 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-static void	parse_register(t_asm *env, char **line, t_param *param)
-{
-	int	nreg;
-
-	nreg = atoi(*line);
-	if (nreg > 0 && nreg <= REG_NUMBER)
-	{
-		param->value = nreg;
-		param->type = T_REG;
-		param->address = env->treat.prog_size + env->parser.current_op.size;
-		param->size = 1;
-		printf("%i\n", param->value);
-	}
-	else
-		handle_error(env, ERROR_REG);
-	while (nreg)
-	{
-		nreg = nreg / 10;
-		(*line)++;
-	}
-	//printf("after_reg=%c\n", **line);
-}
-
-static void	check_param(t_asm *env, char **line, t_param *param)
+static void	check_param(t_asm *env, char **line, t_instr *op, int i_param)
 {
 	char	c;
+	int		param_check;
+
 
 	c = **line;
-	++(*line);
-	if (c == REG_CHAR)
-		parse_register(env, line, param);
-	//else if (c == DIRECT_CHAR)
-	//	parse_direct(env, line, param);
-
+	param_check = op->op_tab.param[i_param];
+	if (c == REG_CHAR && (param_check & T_REG))
+		fill_param(env, line, &(op->param[i_param]), T_REG);
+	else if (c == DIRECT_CHAR && (param_check & T_DIR))
+		fill_param(env, line, &(op->param[i_param]), T_DIR);
+	else if (c != REG_CHAR && c != DIRECT_CHAR && (param_check & T_IND))
+		fill_param(env, line, &(op->param[i_param]), T_IND);
+	else
+		handle_error(env, ERROR_REG);
 }
 
 void		parse_param(t_asm *env, char **line)
@@ -61,15 +43,15 @@ void		parse_param(t_asm *env, char **line)
 	//printf("nbr_param= %d\n", current_op->op_tab.nb_param);
 	while (**line && i < nb_param)
 	{
-		if (check_char_into_str(SKIP_SPACES_TABS, **line))
-			asm_skip_spaces(line, SKIP_SPACES_TABS);
+		if (check_char_into_str(SPACES_TABS, **line))
+			asm_skip_spaces(line, SPACES_TABS);
 		else if (i == 0 && **line != DIRECT_CHAR)
 			handle_error(env, ERROR_PARAM);
-		check_param(env, line, &current_op->param[i]);
+		check_param(env, line, current_op, i);
 		i++;
 		if (**line)
 		{
-			asm_skip_spaces(line, SKIP_SPACES_TABS);
+			asm_skip_spaces(line, SPACES_TABS);
 //			printf("after_separator=%c\n", **line);
 			if ((i < nb_param && **line != SEPARATOR_CHAR) || (i == nb_param && **line))
 				handle_error(env, ERROR_PARAM);

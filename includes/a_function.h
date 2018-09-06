@@ -49,6 +49,7 @@ void			parse_prog(t_asm *env);
 void			parse_label(t_asm *env, char **line);
 void			parse_op(t_asm *env, char **line);
 void			parse_param(t_asm *env, char **line);
+void			fill_param(t_asm *env, char **line, t_param *param, int type);
 void			asm_skip_spaces(char **line, char *escape_str);
 
 /*

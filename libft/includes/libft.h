@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:37:21 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/31 15:04:53 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:56:19 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 int		ft_skip_spaces(char *str);
 int		get_next_line(int const fd, char **line);
+int		ft_atoi(const char *str);
+int		ft_isdigit(int c);
+int		ft_isspace(int c);
 
 /*
 **		MEMORY

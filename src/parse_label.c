@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:46:41 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/03 14:31:12 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/06 15:32:43 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 
 static int	is_good_label(char *string)
 {
-	if (check_char_into_str(LABEL_CHARS, *string) == TRUE)
-	{
-		while (check_char_into_str(LABEL_CHARS, *string) == TRUE &&
-		 check_char_into_str(LABEL_CHARS, *string) == TRUE)
-			++string;
-		if (*string == LABEL_CHAR)
-			return (TRUE);
-		else
-			return (FALSE);
-	}
+	while (check_char_into_str(LABEL_CHARS, *string) == TRUE)
+		++string;
+	if (*string == LABEL_CHAR)
+		return (TRUE);
 	else
 		return (FALSE);
 }

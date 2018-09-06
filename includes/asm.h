@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/04 14:53:30 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/06 14:13:11 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ extern t_op g_op_tab[17];
 # define SUCCESS 0
 # define OP_TAB_SIZE 17
 # define SKIP_ASM_CHAR " \t\n"
-# define SKIP_SPACES_TABS " \t"
+# define SPACES_TABS " \t"
 # define PROG_NAME_STRING ".name"
 # define PROG_NAME_STRLEN 5
 # define COMMENT_STRING ".comment"
