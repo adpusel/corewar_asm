@@ -50,8 +50,13 @@ void			parse_label(t_asm *env, char **line);
 void			parse_op(t_asm *env, char **line);
 void			parse_param(t_asm *env, char **line);
 void			fill_param(t_asm *env, char **line, t_param *param, int type);
+void			fill_label(t_asm *env);
 void			asm_skip_spaces(char **line, char *escape_str);
 
+/*
+**	DEBUG
+*/
+void			print_instructions(t_asm *env);
 /*
 **    label
 */

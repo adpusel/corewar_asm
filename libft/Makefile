@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/09/06 17:16:52 by plamusse         ###   ########.fr        #
+#    Updated: 2018/09/07 14:31:57 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRC = ft_putendl_fd.c\
 	  ft_strnew.c\
 	  ft_strsub.c\
 	  ft_strchr.c\
+	  ft_strequ.c\
 	  ft_strnequ.c\
 	  ft_skip_spaces.c\
 	  ft_dup_memory.c\
@@ -40,6 +41,10 @@ SRC = ft_putendl_fd.c\
 	  ft_memset.c\
 	  print_memory.c\
 	  get_next_line.c\
+	  ft_lst_del.c\
+	  ft_lst_memclr.c\
+	  ft_lst_push_back.c\
+	  ft_lstnew.c\
 	  dll_add.c \
       dll_construct.c \
       dll_drop_index.c \

@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/09/06 15:54:21 by plamusse         ###   ########.fr        #
+#    Updated: 2018/09/07 14:30:47 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ SRC			=	main.c \
 				parse_op.c\
 				parse_param.c\
 				fill_param.c\
+				fill_label.c\
+				print_instructions.c\
 				free.c\
 				op.c\
 				handle_error.c

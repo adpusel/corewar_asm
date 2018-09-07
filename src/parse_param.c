@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 10:24:55 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/06 17:14:45 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/07 13:16:14 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ static void	handle_after_param(t_asm *env, char **line, int i, int nb_param)
 		(*line)++;
 }
 
+static void	fill_ocp(t_instr *instr, t_param *param, int i_param)
+{
+	unsigned char	type;
+	int		i;
+
+	(void)instr;
+	(void)i_param;
+	type = param->type;
+//	printf("type=%i\n", type);
+	type = type << 6;
+	i = 0;
+	while (i++ < i_param)
+		type = type >> 2;
+	instr->ocp |= type;
+//	printf("type_test=%#x\n", type);
+}
+
 static void	check_param(t_asm *env, char **line, t_instr *op, int i_param)
 {
 	char	c;
@@ -44,6 +61,8 @@ static void	check_param(t_asm *env, char **line, t_instr *op, int i_param)
 		fill_param(env, line, &(op->param[i_param]), T_IND);
 	else
 		handle_error(env, ERROR_REG);
+	if (op->op_tab.ocp)
+		fill_ocp(op, &(op->param[i_param]), i_param);
 }
 
 void		parse_param(t_asm *env, char **line)
