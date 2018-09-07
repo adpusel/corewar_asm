@@ -54,6 +54,12 @@ void			fill_label(t_asm *env);
 void			asm_skip_spaces(char **line, char *escape_str);
 
 /*
+**	DATA TREATMENT
+*/
+
+void			treat_file(t_asm *env);
+
+/*
 **	DEBUG
 */
 void			print_instructions(t_asm *env);

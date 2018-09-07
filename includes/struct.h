@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:01:22 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/07 13:06:40 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:57:00 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ typedef struct		s_index
 typedef struct		s_parser
 {
 	t_header	header;
+	int			i_name;
+	int			i_com;
 	char		*line;
 	t_index		index;
 	int			step;

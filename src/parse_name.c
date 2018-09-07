@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 15:22:35 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/02 19:20:06 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/07 15:56:40 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void			parse_name(t_asm *env)
 	static int	first = 0;
 	int			i;
 	char		cur;
+	t_parser	*parser;
 	t_header	*header;
 
 	i = 0;
@@ -66,13 +67,14 @@ void			parse_name(t_asm *env)
 		i = check_first_line(env);
 		first = 1;
 	}
+	parser = &(env->parser);
 	header = &(env->parser.header);
-	while ((cur = env->parser.line[i++])
+	while ((cur = parser->line[i++])
 		&& cur != QUOTE_CHAR
-		&& header->i_name <= PROG_NAME_LENGTH)
-		header->prog_name[header->i_name++] = cur;
-	if (header->i_name > PROG_NAME_LENGTH)
+		&& parser->i_name <= PROG_NAME_LENGTH)
+		header->prog_name[parser->i_name++] = cur;
+	if (parser->i_name > PROG_NAME_LENGTH)
 		handle_error(env, ERROR_HEADER);
 	(cur == '"') ? check_last_line(env, i++)
-			: (header->prog_name[header->i_name++] = '\n');
+			: (header->prog_name[parser->i_name++] = '\n');
 }

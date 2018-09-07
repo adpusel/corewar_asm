@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 16:27:20 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/29 17:56:01 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:00:44 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void			parse_comment(t_asm *env)
 	static int	first = 0;
 	int			i;
 	char		cur;
+	t_parser	*parser;
 	t_header	*header;
 
 	i = 0;
@@ -57,12 +58,13 @@ void			parse_comment(t_asm *env)
 		i = check_first_line(env);
 		first = 1;
 	}
+	parser = &(env->parser);
 	header = &(env->parser.header);
-	while ((cur = env->parser.line[i++])
+	while ((cur = parser->line[i++])
 		&& cur != QUOTE_CHAR
-		&& header->i_name <= COMMENT_LENGTH)
-		header->comment[header->i_com++] = cur;
-	if (header->i_com > COMMENT_LENGTH)
+		&& parser->i_com <= COMMENT_LENGTH)
+		header->comment[parser->i_com++] = cur;
+	if (parser->i_com > COMMENT_LENGTH)
 		handle_error(env, ERROR_HEADER);
-	(cur == QUOTE_CHAR) ? check_last_line(env, i++) : (header->comment[header->i_com++] = '\n');
+	(cur == QUOTE_CHAR) ? check_last_line(env, i++) : (header->comment[parser->i_com++] = '\n');
 }

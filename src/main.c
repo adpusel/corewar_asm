@@ -6,13 +6,14 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 13:49:15 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/03 19:16:38 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/07 16:18:56 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
 // TODO : ne pas oublier que le file doit finir par une new line
+
 int		main(int argc, char *argv[])
 {
 	t_asm	*env;
@@ -25,6 +26,7 @@ int		main(int argc, char *argv[])
 	env->file.name = *(++argv);
 	check_file(env);
 	parse_file(env);
+	treat_file(env);
 	free_asm(env);
 	return (0);
 }
