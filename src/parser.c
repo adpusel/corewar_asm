@@ -6,12 +6,18 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:56:20 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/07 13:42:09 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 12:35:55 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
+static void		fill_header(t_asm *env)
+{
+	env->parser.header.prog_size = little_endian(env->treat.prog_size);
+	env->parser.header.magic = little_endian(COREWAR_EXEC_MAGIC);
+
+}
 void			parse_file(t_asm *env)
 {
 	char	*tmp ;
@@ -36,8 +42,9 @@ void			parse_file(t_asm *env)
 	else if (env->parser.step <= ERROR)
 		handle_error(env, env->parser.step);
 	fill_label(env);
-	print_instructions(env);
-	printf("prog_size=%i\n", env->treat.prog_size);
+	fill_header(env);
+	//print_instructions(env);
+	//printf("prog_size=%i\n", env->treat.prog_size);
 	//printf("name=%s\n", env->parser.header.prog_name);
 	//printf("comment=%s\n", env->parser.header.comment);
 }

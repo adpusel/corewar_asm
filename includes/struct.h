@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:01:22 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/07 16:57:00 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 12:53:16 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,12 @@ typedef struct	s_param
 {
 	int32_t		address;
 	int32_t		size;
-	int64_t		value;
-	char		*label;
+	union
+	{
+		int32_t		value;
+		char		val_tab[4];
+	};
+		char		*label;
 	unsigned char		type;
 }				t_param;
 
@@ -46,6 +50,62 @@ typedef struct	s_instr
 	t_param			param[3];
 	t_op			op_tab;
 } 				t_instr;
+
+typedef struct		s_file
+{
+	int			fd;
+	int			ret;
+	char		*src_name;
+	char		*dst_name;
+}					t_file;
+
+typedef struct		s_index
+{
+	int			line;
+	int			character;
+}					t_index;
+
+typedef struct		s_parser
+{
+	t_header	header;
+	int			i_name;
+	int			i_com;
+	char		*line;
+	t_index		index;
+	int			step;
+	char		*current_label;
+	t_instr		current_op;
+}					t_parser;
+
+typedef struct		s_treat
+{
+	char		*champ;
+	int			prog_size;
+	t_list		*op_list;
+}					t_treat;
+
+typedef struct		s_asm
+{
+	t_file		file;
+	t_parser	parser;
+	t_treat		treat;
+}					t_asm;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 typedef struct		s_label_00
@@ -72,47 +132,4 @@ typedef struct		s_char_tab
 	char		*tab;
 	size_t		where;
 }					t_char_tab;
-
-typedef struct		s_file
-{
-	int			fd;
-	int			ret;
-	char		*name;
-}					t_file;
-
-typedef struct		s_index
-{
-	int			line;
-	int			character;
-}					t_index;
-
-typedef struct		s_parser
-{
-	t_header	header;
-	int			i_name;
-	int			i_com;
-	char		*line;
-	t_index		index;
-	int			step;
-	char		*current_label;
-	t_instr		current_op;
-	t_char_tab	tab;
-	t_dll		*label_list;
-	t_dll		*add_list;
-}					t_parser;
-
-typedef struct		s_treat
-{
-	char		*champ;
-	int			prog_size;
-	t_list		*op_list;
-}					t_treat;
-
-typedef struct		s_asm
-{
-	t_file		file;
-	t_parser	parser;
-	t_treat		treat;
-}					t_asm;
-
 #endif

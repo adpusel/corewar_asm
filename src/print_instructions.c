@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:48:39 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/07 16:56:58 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 11:55:18 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	print_params(t_instr *instr)
 		print_type(param->type);
 		if (param->label)
 			printf("label=		%s\n", param->label);
-		printf("value=		%#llx\n", param->value);
+		printf("value=		%#x\n", param->value);
 		printf("size=		%i\n", param->size);
 		printf("address=	%i\n", param->address);
 		printf("\n");

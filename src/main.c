@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 13:49:15 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/07 16:18:56 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 13:17:35 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int		main(int argc, char *argv[])
 
 	env = &tmp;
 	init_asm(env);
-	if (argc != 2 && !(env->file.name = *(++argv)))
+	if (argc != 2 || !(env->file.src_name = *(++argv)))
 		handle_error(env, ERROR_USAGE);
-	env->file.name = *(++argv);
 	check_file(env);
 	parse_file(env);
 	treat_file(env);
+	printf("Writing output program to %s\n", env->file.dst_name); // ft_printf
 	free_asm(env);
 	return (0);
 }

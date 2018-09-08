@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 10:38:10 by plamusse          #+#    #+#             */
-/*   Updated: 2018/08/28 14:11:04 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 12:58:28 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void		check_file(t_asm *env)
 {
 	char	*file_name;
 
-	file_name = env->file.name;
+	file_name = env->file.src_name;
 	check_extension(env, file_name);
 	get_file_descriptor(env, file_name);
 }

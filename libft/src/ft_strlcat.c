@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/28 14:19:55 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 12:37:34 by plamusse         ###   ########.fr       */
+/*   Created: 2017/04/13 13:36:11 by plamusse          #+#    #+#             */
+/*   Updated: 2017/04/22 17:51:57 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm.h"
+#include "libft.h"
 
-void			init_asm(t_asm *env)
+size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
-	ft_memset((void*)env, 0, sizeof(t_asm));
+	size_t		i;
+	size_t		j;
+
+	i = 0;
+	while (dst[i] && i < size)
+		i++;
+	j = 0;
+	while (src[j] && (i + j + 1) < size)
+	{
+		dst[i + j] = src[j];
+		j++;
+	}
+	if (i < size)
+		dst[i + j] = '\0';
+	return (i + ft_strlen(src));
 }

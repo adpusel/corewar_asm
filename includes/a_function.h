@@ -33,7 +33,7 @@ unsigned char get_op(int p1, int p2, int p3);
 void	init_asm(t_asm *env);
 
 /*
-**	Check_file
+**	CHECK_FILE
 */
 
 void	check_file(t_asm *env);
@@ -58,11 +58,33 @@ void			asm_skip_spaces(char **line, char *escape_str);
 */
 
 void			treat_file(t_asm *env);
+void			write_cor(t_asm *env);
+
+/*
+**	BYTE
+*/
+
+int32_t			little_endian(int32_t big);
 
 /*
 **	DEBUG
 */
+
 void			print_instructions(t_asm *env);
+
+/*
+**	FREE
+*/
+
+void		free_asm(t_asm *env);
+
+
+
+
+
+
+
+
 /*
 **    label
 */
@@ -80,11 +102,6 @@ int				new_address_link(t_label *label, t_dll_l **link_ptr);
 
 void		handle_error(t_asm *env, int err_code);
 
-/*
-**    free
-*/
-
-void		free_asm(t_asm *env);
 /*
 **    test
 */

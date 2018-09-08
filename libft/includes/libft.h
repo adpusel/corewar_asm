@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:37:21 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/07 14:31:39 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 13:15:08 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strnew(size_t size);
 int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
+size_t		ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 int		ft_skip_spaces(char *str);
 int		get_next_line(int const fd, char **line);
@@ -62,9 +63,9 @@ int		ft_isspace(int c);
 **		LIST
 */
 
-void	ft_lst_del(t_list **alst, void (*del)(void *, size_t));
-void			ft_lst_memclr(void *content, size_t content_size);
-t_list	*ft_lst_push_back(t_list **alst, t_list *new);
+void		ft_lst_del(t_list **alst, void (*del)(void *, size_t));
+void		ft_lst_memclr(void *content, size_t content_size);
+t_list		*ft_lst_push_back(t_list **alst, t_list *new);
 t_list		*ft_lstnew(void const *content, size_t content_size);
 
 /*

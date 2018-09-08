@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/09/07 16:18:45 by plamusse         ###   ########.fr        #
+#    Updated: 2018/09/08 12:58:18 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ SRC			=	main.c \
 				fill_param.c\
 				fill_label.c\
 				treat_file.c\
+				write_cor.c\
+				byte.c\
 				print_instructions.c\
 				free.c\
 				op.c\

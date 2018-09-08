@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/09/07 14:31:57 by plamusse         ###   ########.fr        #
+#    Updated: 2018/09/08 13:15:24 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC = ft_putendl_fd.c\
 	  ft_strchr.c\
 	  ft_strequ.c\
 	  ft_strnequ.c\
+	  ft_strlcat.c\
 	  ft_skip_spaces.c\
 	  ft_dup_memory.c\
 	  ft_memdel.c\

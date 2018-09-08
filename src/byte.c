@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   byte.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/28 14:19:55 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 12:37:34 by plamusse         ###   ########.fr       */
+/*   Created: 2018/09/08 12:24:26 by plamusse          #+#    #+#             */
+/*   Updated: 2018/09/08 12:34:53 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-void			init_asm(t_asm *env)
+int32_t		little_endian(int32_t big)
 {
-	ft_memset((void*)env, 0, sizeof(t_asm));
+	int32_t		little;
+	int32_t		num;
+
+	num = big;
+	little = ((num>>24)&0xff)
+		| ((num<<8)&0xff0000)
+		| ((num>>8)&0xff00)
+		| ((num<<24)&0xff000000);
+	return (little);
 }

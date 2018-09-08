@@ -6,31 +6,36 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:15:50 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/07 16:56:57 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 12:58:37 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-void		put_params(char *champ, t_instr *instr, int *i)
+static void	put_value(char *champ, t_param *param, int *i_champ)
+{
+	int		size;
+	int		i;
+
+	i = 0;
+	size = param->size;
+	while (size--)
+		champ[*i_champ + size] = param->val_tab[i++];
+}
+
+static void	put_params(char *champ, t_instr *instr, t_param *param, int *i_champ)
 {
 	int		i_param;
-	int		i_byte;
-	char	value[4];
-	t_param	*param;
 
 	i_param = 0;
-	i_byte = 3;
 	while (i_param < instr->op_tab.nb_param)
 	{
 		param = &instr->param[i_param++];
-		value[] = param->value;
-
-// ICI
-		*i = *i + param->size;
+		put_value(champ, param, i_champ);
+		*i_champ += param->size;
 	}
 }
-void		translate_to_bytecode(t_asm *env)
+static void	translate_to_bytecode(t_asm *env)
 {
 	t_list	*op_list;
 	t_instr	*instr;
@@ -49,23 +54,9 @@ void		translate_to_bytecode(t_asm *env)
 		champ[i++] = instr->op_tab.op_code;
 		if (instr->ocp)
 			champ[i++] = instr->ocp;
-		put_params(champ, instr, &i);
+		put_params(champ, instr, instr->param, &i);
 		op_list = op_list->next;
 	}
-}
-
-static void	write_cor(t_asm *env)
-{
-	int		fd;
-
-	fd = open(
-			"my_champ.cor"
-			, O_WRONLY | O_CREAT | O_TRUNC
-			, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-	if (fd < 0)
-		handle_error(env, ERROR_CREAT_FILE);
-	write(fd, (void*)&env->parser.header, sizeof(t_header));	
-	write(fd, "my byte", 7);
 }
 
 void		treat_file(t_asm *env)
