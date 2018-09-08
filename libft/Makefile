@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/09/08 13:15:24 by plamusse         ###   ########.fr        #
+#    Updated: 2018/09/08 13:27:19 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,12 +46,6 @@ SRC = ft_putendl_fd.c\
 	  ft_lst_memclr.c\
 	  ft_lst_push_back.c\
 	  ft_lstnew.c\
-	  dll_add.c \
-      dll_construct.c \
-      dll_drop_index.c \
-      dll_drop_link.c \
-      dll_func.c \
-
 
 OBJ			= $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 

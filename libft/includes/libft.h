@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:37:21 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 13:15:08 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 13:34:40 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 **		DEFINE
 */
 
-# define GNL_BUFF_SIZE 32
+# define ERROR			-1
+# define SUCCESS		0
+# define GNL_BUFF_SIZE	32
 
 typedef	struct		s_list
 {

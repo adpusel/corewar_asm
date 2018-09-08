@@ -6,11 +6,11 @@
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2018/08/31 13:52:28 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 13:33:48 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library_headerd.h"
+#include "libft.h"
 
 
 int ft_dup_memory(void **dest, const void *src, size_t size)
@@ -19,16 +19,16 @@ int ft_dup_memory(void **dest, const void *src, size_t size)
 	static int ret;
 
 	if (src == NULL)
-	    return (PTR_NULL);
+	    return (ERROR);
 	mem = malloc(size == 0 ? 1 : size);
 	if (mem == NULL)
 	{
-		ret = MEM_LACK;
+		ret = ERROR;
 		*dest = NULL;
 	}
 	else
 	{
-		ret = TRUE;
+		ret = SUCCESS;
 		ft_memcpy(mem, src, size);
 		*dest = mem;
 	}
