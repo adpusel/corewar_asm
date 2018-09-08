@@ -6,11 +6,11 @@
 /*   By: zaz <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:43:01 by zaz               #+#    #+#             */
-/*   Updated: 2018/09/06 16:34:35 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 13:49:40 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_asm_header.h"
+#include "asm.h"
 
 t_op g_op_tab[OP_TAB_SIZE] =
  { //name	nb_param   param									id/opcode,  duree, desciption						octet_pard  size ?

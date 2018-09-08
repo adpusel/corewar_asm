@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/09/08 13:27:19 by plamusse         ###   ########.fr        #
+#    Updated: 2018/09/08 13:50:18 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ SRC = ft_putendl_fd.c\
 	  ft_memdel.c\
 	  ft_memcpy.c\
 	  ft_memset.c\
-	  print_memory.c\
 	  get_next_line.c\
 	  ft_lst_del.c\
 	  ft_lst_memclr.c\

@@ -6,19 +6,12 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/07 15:22:36 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 13:41:55 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ASM_H
 # define ASM_H
-
-# include "op.h"
-# include "libft.h"
-# include "ft_library_headerd.h"
-#include "struct.h"
-
-extern t_op g_op_tab[17];
 
 /*
 **    DEFINE ========================================================
@@ -52,6 +45,15 @@ extern t_op g_op_tab[17];
 # define ERROR_LABEL		-13
 # define ERROR_CREAT_FILE	-14
 
-# include "a_function.h"
+/*
+**    INCLUDE ========================================================
+*/
+
+# include "op.h"
+# include "libft.h"
+# include "struct.h"
+# include "function.h"
+
+extern t_op g_op_tab[17];
 
 #endif

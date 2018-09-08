@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:37:21 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 13:34:40 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 13:47:47 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 # include <sys/stat.h> 
 # include <fcntl.h>
 
-# include "print_memory.h"
-
 /*
 **		DEFINE
 */
 
 # define ERROR			-1
 # define SUCCESS		0
+# define TRUE			1
+# define FALSE			0
 # define GNL_BUFF_SIZE	32
 
 typedef	struct		s_list

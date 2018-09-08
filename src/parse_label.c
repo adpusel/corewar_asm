@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 12:46:41 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/06 15:32:43 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 13:49:22 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		parse_label(t_asm *env, char **line)
 		err = ft_dup_memory((void **)&(env->parser.current_label)
 				, *line
 				, ret + 1);
-		if (err == MEM_LACK)
+		if (err == ERROR)
 			handle_error(env, ERROR_MALLOC);
 		env->parser.current_label[ret++] = '\0';
 		//printf("label=%s\n", env->parser.current_label);
