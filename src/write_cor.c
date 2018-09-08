@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 12:57:12 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 13:18:21 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 14:00:44 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 static void	get_file_dst_name(t_asm *env)
 {
 	int		src_len;
+	int		ext_len;
 
-	src_len = ft_strlen(env->file.src_name);
-	env->file.dst_name = (char*)malloc(sizeof(char) * (src_len + 2));
-	ft_memset(env->file.dst_name, 0, src_len + 2);
-	ft_memcpy(env->file.dst_name, env->file.src_name, src_len - 2);
-	ft_strlcat(env->file.dst_name, ".cor", src_len + 3);
+	ext_len = ft_strlen(DST_EXTENSION);
+	src_len = ft_strlen(env->file.src_name) - 2;
+	env->file.dst_name = (char*)malloc(sizeof(char) * (src_len + ext_len));
+	ft_memset(env->file.dst_name, 0, src_len + ext_len);
+	ft_memcpy(env->file.dst_name, env->file.src_name, src_len);
+	ft_strlcat(env->file.dst_name, DST_EXTENSION, src_len + ext_len + 1);
 }
 
 void		write_cor(t_asm *env)
