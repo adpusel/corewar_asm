@@ -6,27 +6,18 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 10:24:55 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/07 13:16:14 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 16:00:19 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
+
 static void	handle_before_param(t_asm *env, char **line, int i)
 {
 	if (check_char_into_str(SPACES_TABS, **line))
 		asm_skip_spaces(line, SPACES_TABS);
 	else if (i == 0 && **line != DIRECT_CHAR)
 		handle_error(env, ERROR_PARAM);
-}
-
-static void	handle_after_param(t_asm *env, char **line, int i, int nb_param)
-{
-	asm_skip_spaces(line, SPACES_TABS);
-	//printf("after_separator=%c\n", **line);
-	if ((i < nb_param && **line != SEPARATOR_CHAR) || (i == nb_param && **line))
-		handle_error(env, ERROR_PARAM);
-	else if (**line)
-		(*line)++;
 }
 
 static void	fill_ocp(t_instr *instr, t_param *param, int i_param)
@@ -63,6 +54,16 @@ static void	check_param(t_asm *env, char **line, t_instr *op, int i_param)
 		handle_error(env, ERROR_REG);
 	if (op->op_tab.ocp)
 		fill_ocp(op, &(op->param[i_param]), i_param);
+}
+
+static void	handle_after_param(t_asm *env, char **line, int i, int nb_param)
+{
+	asm_skip_spaces(line, SPACES_TABS);
+	//printf("after_separator=%c\n", **line);
+	if ((i < nb_param && **line != SEPARATOR_CHAR) || (i == nb_param && **line && **line != COMMENT_CHAR))
+		handle_error(env, ERROR_PARAM);
+	else if (**line)
+		(*line)++;
 }
 
 void		parse_param(t_asm *env, char **line)

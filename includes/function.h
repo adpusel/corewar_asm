@@ -49,6 +49,7 @@ int32_t			little_endian(int32_t big);
 */
 
 void			print_instructions(t_asm *env);
+void			print_instruction(t_instr *instr, int i);
 
 /*
 **	FREE

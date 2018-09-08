@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 16:27:20 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/07 16:00:44 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 14:49:54 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int		check_first_line(t_asm *env)
 static void		check_last_line(t_asm *env, int i)
 {
 	i += ft_skip_spaces(env->parser.line + i);
-	if (env->parser.line[i] == '\0')
+	if (env->parser.line[i] == '\0' || env->parser.line[i] == COMMENT_CHAR)
 	   	env->parser.step = 2;
 	else
 		env->parser.step = ERROR;

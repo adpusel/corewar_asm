@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 12:57:12 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 14:00:44 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 15:28:51 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	get_file_dst_name(t_asm *env)
 	int		ext_len;
 
 	ext_len = ft_strlen(DST_EXTENSION);
-	src_len = ft_strlen(env->file.src_name) - 2;
+	src_len = ft_strlen(env->file.src_name) - ft_strlen(SRC_EXTENSION);
 	env->file.dst_name = (char*)malloc(sizeof(char) * (src_len + ext_len));
 	ft_memset(env->file.dst_name, 0, src_len + ext_len);
 	ft_memcpy(env->file.dst_name, env->file.src_name, src_len);

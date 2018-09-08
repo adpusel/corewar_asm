@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 13:57:26 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/08 16:28:01 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define PROG_NAME_STRLEN 5
 # define COMMENT_STRING ".comment"
 # define COMMENT_STRLEN 8
+# define SRC_EXTENSION ".s"
 # define DST_EXTENSION ".mycor"
 
 /*
