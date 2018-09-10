@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9.4)
 
-set(PROJECT_NAME CORWAR_GROUPE)
+set(PROJECT_NAME asm)
 
 #*------------------------------------*\
 #    --  NAME PROJET  --
@@ -48,6 +48,6 @@ add_subdirectory(file)
 #*------------------------------------*\
 #    linking
 #*------------------------------------*/
-target_link_libraries(Corewar_run Corwar_lib )
+target_link_libraries(Corewar_run Corwar_lib)
 target_link_libraries(Corewar_run libft)
 target_link_libraries(Corewar_run lib_commun)
