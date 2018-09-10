@@ -6,7 +6,7 @@
 #    By: plamusse <plamusse@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/17 14:39:22 by plamusse          #+#    #+#              #
-#    Updated: 2018/09/08 15:50:58 by plamusse         ###   ########.fr        #
+#    Updated: 2018/09/10 17:15:26 by plamusse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,15 @@ OBJ_DIR		= ./obj
 LIB_DIR		= ./libft
 
 # src / obj files
+				#parse_name.c
+				#parse_comment.c
 
 SRC			=	main.c \
 				init.c\
 				check_file.c\
 				parser.c\
 				parser_helper.c\
-				parse_name.c\
-				parse_comment.c\
+				parse_header.c\
 				parse_prog.c\
 				parse_label.c\
 				parse_op.c\

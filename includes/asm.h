@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 16:28:01 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/10 18:01:46 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@
 
 # define SKIP_ASM_CHAR " \t\n"
 # define SPACES_TABS " \t"
-# define PROG_NAME_STRING ".name"
-# define PROG_NAME_STRLEN 5
-# define COMMENT_STRING ".comment"
-# define COMMENT_STRLEN 8
+# define PREFIX_NAME ".name"
+# define NAME_TYPE		1
+# define PREFIX_COMMENT ".comment"
+# define COMMENT_TYPE	2
 # define SRC_EXTENSION ".s"
-# define DST_EXTENSION ".mycor"
+# define DST_EXTENSION ".cor"
 
 /*
 **    ERROR ========================================================
@@ -51,6 +51,7 @@
 # define ERROR_REG			-12
 # define ERROR_LABEL		-13
 # define ERROR_CREAT_FILE	-14
+# define ERROR_SIZE_CHAMP	-15
 
 /*
 **    INCLUDE ========================================================

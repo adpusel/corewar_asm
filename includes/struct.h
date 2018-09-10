@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:01:22 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 12:53:16 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/10 17:09:45 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,19 @@ typedef struct		s_index
 	int			character;
 }					t_index;
 
+typedef struct		s_head_help
+{
+	int			type;
+	int			i;
+	int			size;
+	int			len_max;
+	char		*cur_str;
+}					t_head_help;
+
 typedef struct		s_parser
 {
 	t_header	header;
-	int			i_name;
-	int			i_com;
+	t_head_help	head_help;
 	char		*line;
 	t_index		index;
 	int			step;

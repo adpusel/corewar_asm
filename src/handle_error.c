@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:18:32 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/04 14:54:22 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/10 18:20:48 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void		handle_error(t_asm *env, int err_code)
 	free_asm(env);
 	if (err_code == ERROR_MALLOC)
 		ft_putendl_fd("je t'attendais", 2);
+	if (err_code == ERROR_ARG)
+		ft_putendl_fd("arg", 2);
 	else if (err_code == ERROR_FD)
 		ft_putendl_fd("arrete de vouloir lire des dossier avec mon programme stp", 2);
 	else if (err_code == ERROR_FILE_NAME)
@@ -31,5 +33,11 @@ void		handle_error(t_asm *env, int err_code)
 		ft_putendl_fd("les params c'est pas ca", 2);
 	else if (err_code == ERROR_REG)
 		ft_putendl_fd("pour les registres on fait comment ?", 2);
+	else if (err_code == ERROR_LABEL)
+		ft_putendl_fd("label", 2);
+	else if (err_code == ERROR_CREAT_FILE)
+		ft_putendl_fd("create file", 2);
+	else if (err_code == ERROR_SIZE_CHAMP)
+		ft_putendl_fd("size champ", 2);
 	exit(-1);
 }

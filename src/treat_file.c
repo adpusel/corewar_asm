@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:15:50 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 12:58:37 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/10 18:26:00 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,16 @@ static void	translate_to_bytecode(t_asm *env)
 	char	*champ;
 	int		i;
 
-	env->treat.champ = (char*)malloc(sizeof(char) * (env->treat.prog_size + 1));
-	if (!env->treat.champ)
-		handle_error(env, ERROR_MALLOC);
+	//printf("champ_size=%i\n", env->treat.prog_size);
+	//printf("champ_max_size=%i\n", CHAMP_MAX_SIZE);
+	//if (env->treat.prog_size <= CHAMP_MAX_SIZE)
+	//{
+		env->treat.champ = (char*)malloc(sizeof(char) * (env->treat.prog_size + 1));
+		if (!env->treat.champ)
+			handle_error(env, ERROR_MALLOC);
+	//}
+	//else
+	//		handle_error(env, ERROR_SIZE_CHAMP);
 	champ = env->treat.champ;
 	op_list = env->treat.op_list;
 	i = 0;

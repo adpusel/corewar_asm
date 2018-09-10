@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 14:44:26 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 13:48:18 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/10 15:09:18 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ static void	fill_param_size(t_asm *env, t_param *param, int type)
 
 void	fill_param(t_asm *env, char **line, t_param *param, int type)
 {
-	param->type = type;
 //	printf("type=%i\n", param->type);
 	if ((type & T_REG) || (type & T_DIR))
 		++(*line);
