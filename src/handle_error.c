@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:18:32 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/10 18:20:48 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/11 15:15:59 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		handle_error(t_asm *env, int err_code)
 {
-	free_asm(env);
+	printf("error in %s: asm: token at [l%i]\n", env->file.src_name, env->parser.index.line);
 	if (err_code == ERROR_MALLOC)
 		ft_putendl_fd("je t'attendais", 2);
 	if (err_code == ERROR_ARG)
@@ -39,5 +39,6 @@ void		handle_error(t_asm *env, int err_code)
 		ft_putendl_fd("create file", 2);
 	else if (err_code == ERROR_SIZE_CHAMP)
 		ft_putendl_fd("size champ", 2);
+	free_asm(env);
 	exit(-1);
 }

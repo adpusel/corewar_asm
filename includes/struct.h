@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:01:22 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/10 17:09:45 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/11 15:16:25 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,45 +99,4 @@ typedef struct		s_asm
 	t_treat		treat;
 }					t_asm;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-typedef struct		s_label_00
-{
-	const char *name;
-	ssize_t address;
-}					t_label;
-
-typedef struct		s_address
-{
-	size_t address_instruction;
-	size_t address_param;
-	size_t size_param;
-	t_label *label_ptr;
-}					t_address;
-
-typedef struct		s_debug
-{
-	int show_label;
-}					t_debug;
-
-typedef struct		s_char_tab
-{
-	char		*tab;
-	size_t		where;
-}					t_char_tab;
 #endif
