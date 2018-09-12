@@ -34,8 +34,8 @@ else
 		ASM_DIFF="$ASM_FILE.diff"
 		CORE_BOOL=0
 		FT_CORE_BOOL=0
-		$ASM $ASM_S &>/dev/null && hexdump -C $ASM_COR > $COR_HEX && CORE_BOOL=1
-		$FT_ASM $ASM_S &>/dev/null && hexdump -C $ASM_COR > $FT_COR_HEX && FT_CORE_BOOL=1
+		$ASM $ASM_S >/dev/null && hexdump -C $ASM_COR > $COR_HEX && CORE_BOOL=1
+		$FT_ASM $ASM_S >/dev/null && hexdump -C $ASM_COR > $FT_COR_HEX && FT_CORE_BOOL=1
 		if [ $CORE_BOOL = "1" ] && [ $FT_CORE_BOOL = "1" ]
 		then
 			touch $ASM_DIFF && diff $COR_HEX $FT_COR_HEX > $ASM_DIFF
