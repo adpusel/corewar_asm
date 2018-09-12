@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:01:22 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/11 15:16:25 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/12 11:57:46 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct	s_param
 typedef struct	s_instr
 {
 	int32_t			address;
-	char			*label;
 	unsigned char 	ocp;
 	int32_t			size;
 	t_param			param[3];
@@ -81,15 +80,21 @@ typedef struct		s_parser
 	char		*line;
 	t_index		index;
 	int			step;
-	char		*current_label;
 	t_instr		current_op;
 }					t_parser;
+
+typedef struct		s_label
+{
+	char		*name;
+	int			address;
+}					t_label;
 
 typedef struct		s_treat
 {
 	char		*champ;
 	int			prog_size;
 	t_list		*op_list;
+	t_list		*label_list;
 }					t_treat;
 
 typedef struct		s_asm

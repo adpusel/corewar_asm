@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 11:48:39 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 15:46:57 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/12 12:01:53 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ void		print_instruction(t_instr *instr, int i)
 {
 
 		printf("_______INSTRUCTION %i | %s (%i) |_______\n\n", i, instr->op_tab.name, instr->op_tab.op_code);
-		if (instr->label)
-			printf("label=		%s\n", instr->label);
 		if (instr->ocp)
 			printf("ocp=		%#x\n", instr->ocp);
 		printf("size=		%i\n", instr->size);

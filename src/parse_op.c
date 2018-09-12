@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 15:55:36 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/04 14:14:25 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/12 11:57:37 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void		parse_op(t_asm *env, char **line)
 	current_op = &env->parser.current_op;
 	current_op->address = env->treat.prog_size;
 	current_op->size = 1;
-	current_op->label = env->parser.current_label;
-	env->parser.current_label = NULL;
 	if (current_op->op_tab.ocp)
 		current_op->size = 2;
 	else
