@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:18:32 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/12 14:31:35 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 14:09:44 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void		handle_error(t_asm *env, int err_code)
 {
-	printf("error in %s: asm: token at [l%i]\n", env->file.src_name, env->parser.index.line);
+
 	if (err_code == ERROR_MALLOC)
 		ft_putendl_fd("je t'attendais", 1);
-	if (err_code == ERROR_ARG)
+	else if (err_code == ERROR_ARG)
 		ft_putendl_fd("arg", 1);
 	else if (err_code == ERROR_FD)
 		ft_putendl_fd("arrete de vouloir lire des dossier avec mon programme stp", 1);

@@ -6,11 +6,12 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:35:36 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/10 17:43:32 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 14:28:29 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
+
 static void	check_prefix(t_asm *env, t_parser *parser, int *i)
 {
 	int		len;
@@ -62,6 +63,7 @@ static void		check_last_line(t_asm *env, int i, int *first)
 	else
 		handle_error(env, ERROR_HEADER);
 }
+
 void		parse_header(t_asm *env)
 {
 	static int	first = 0;

@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 14:44:26 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/10 15:09:18 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 18:49:33 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,15 @@ static int	label_len(char *label)
 static void	parse_param_label(t_asm *env, char **line, t_param *param)
 {
 	int		len;
-	int		err;
 
 	++(*line);
 	len = label_len(*line);
-	err = ft_dup_memory((void **)&(param->label)
-			, *line
-			, len + 1);
-	if (err == ERROR)
+	param->label = (char*)malloc(sizeof(char) * (len + 1));
+	if (!param->label)
 		handle_error(env, ERROR_MALLOC);
 	param->label[len] = '\0';
-//	printf("label=%s\n", param->label);
+	ft_memcpy(param->label, *line, len);
+	printf("label=%s\n", param->label);
 	*line += len;
 }
 

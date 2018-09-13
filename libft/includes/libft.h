@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 13:37:21 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 13:47:47 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 18:45:53 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ typedef	struct		s_list
 int	check_char_into_str(char *str, char c);
 void	ft_putendl_fd(char const *s, int fd);
 int		ft_strcmp(const char *s1, const char *s2);
+char		*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 ssize_t ft_strclen(char *s, char c);
-int		ft_dup_memory(void **dest, const void *src, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strnew(size_t size);
@@ -78,5 +78,8 @@ void	ft_memdel(void **ap);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
 void	*print_memory(void *addr, unsigned long size);
+int		ft_dup_memory(void **dest, const void *src, size_t size);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memalloc(size_t size);
 
 #endif

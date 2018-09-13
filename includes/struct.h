@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:01:22 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/12 11:57:46 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 15:44:14 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,22 @@ typedef struct	s_op
 	int		direct_size;
 }				t_op;
 
+
+typedef struct		s_label
+{
+	char		*name;//
+	int			address;
+
+}					t_label;
+
+typedef struct		s_treat
+{
+	char		*champ;
+	int			prog_size;
+	t_list		*op_list; //?
+	t_list		*label_list;//
+}					t_treat;
+
 typedef struct	s_param
 {
 	int32_t		address;
@@ -37,7 +53,7 @@ typedef struct	s_param
 		int32_t		value;
 		char		val_tab[4];
 	};
-		char		*label;
+		char		*label;//?
 	unsigned char		type;
 }				t_param;
 
@@ -49,14 +65,6 @@ typedef struct	s_instr
 	t_param			param[3];
 	t_op			op_tab;
 } 				t_instr;
-
-typedef struct		s_file
-{
-	int			fd;
-	int			ret;
-	char		*src_name;
-	char		*dst_name;
-}					t_file;
 
 typedef struct		s_index
 {
@@ -70,8 +78,16 @@ typedef struct		s_head_help
 	int			i;
 	int			size;
 	int			len_max;
-	char		*cur_str;
+	char		*cur_str;//?
 }					t_head_help;
+
+typedef struct		s_header
+{
+	unsigned int		magic;
+	char			prog_name[PROG_NAME_LENGTH + 1];
+	unsigned int		prog_size;
+	char			comment[COMMENT_LENGTH + 1];
+}					t_header;
 
 typedef struct		s_parser
 {
@@ -83,19 +99,13 @@ typedef struct		s_parser
 	t_instr		current_op;
 }					t_parser;
 
-typedef struct		s_label
+typedef struct		s_file
 {
-	char		*name;
-	int			address;
-}					t_label;
-
-typedef struct		s_treat
-{
-	char		*champ;
-	int			prog_size;
-	t_list		*op_list;
-	t_list		*label_list;
-}					t_treat;
+	int			fd;
+	int			ret;
+	char		*src_name;
+	char		*dst_name;
+}					t_file;
 
 typedef struct		s_asm
 {

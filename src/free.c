@@ -6,13 +6,64 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 15:30:13 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/12 12:02:07 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 19:11:41 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-void	free_gnl(t_asm *env)
+static void	free_label_list(t_asm *env)
+{
+	t_list	*label_list;
+	t_label	*label;
+
+	label_list = env->treat.label_list;
+	while (label_list)
+	{
+		label = (t_label*)label_list->content;
+		ft_memdel((void**)&(label->name));
+		label_list = label_list->next;
+	}
+	ft_lst_del(&(env->treat.label_list), &ft_lst_memclr);
+}
+
+static void	free_op_list(t_asm *env)
+{
+	t_list	*op_list;
+	t_instr	*instr;
+	t_param	*param;
+	int		i;
+
+	op_list = env->treat.op_list;
+	while (op_list)
+	{
+		instr = (t_instr*)op_list->content;
+		i = 0;
+		while (i < instr->op_tab.nb_param)
+		{
+			param = &instr->param[i];
+			ft_memdel((void**)&(param->label));
+			i++;
+		}
+		op_list = op_list->next;
+	}
+	ft_lst_del(&(env->treat.op_list), &ft_lst_memclr);
+}
+static void	free_current_op(t_instr *instr)
+{
+	t_param	*param;
+	int		i;
+
+	i = 0;
+	while (i < instr->op_tab.nb_param)
+	{
+		param = &instr->param[i];
+		ft_memdel((void**)&(param->label));
+		i++;
+	}
+
+}
+static void	free_gnl(t_asm *env)
 {
 	ft_memdel((void**)&(env->parser.line));
 	if (env->file.ret > 0)
@@ -29,4 +80,7 @@ void	free_asm(t_asm *env)
 	free_gnl(env);
 	ft_memdel((void**)&(env->treat.champ));
 	ft_memdel((void**)&(env->file.dst_name));
+	free_current_op(&env->parser.current_op);
+	free_op_list(env);
+	free_label_list(env);
 }
