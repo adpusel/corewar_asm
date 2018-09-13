@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 14:44:26 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/13 18:49:33 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 19:31:55 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static void	parse_param_label(t_asm *env, char **line, t_param *param)
 		handle_error(env, ERROR_MALLOC);
 	param->label[len] = '\0';
 	ft_memcpy(param->label, *line, len);
-	printf("label=%s\n", param->label);
 	*line += len;
 }
 

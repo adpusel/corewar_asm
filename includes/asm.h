@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 12:09:37 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/12 15:56:30 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 19:50:29 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,13 @@
 # define ERROR_FD			-4
 # define ERROR_FILE_NAME	-5
 # define ERROR_USAGE		-6
-# define ERROR_TEST			-7
-# define ERROR_QUOTE		-8
+# define ERROR_NOPROG		-7
 # define ERROR_HEADER		-9
 # define ERROR_OP_NAME		-10
 # define ERROR_PARAM		-11
 # define ERROR_REG			-12
 # define ERROR_LABEL		-13
 # define ERROR_CREAT_FILE	-14
-# define ERROR_SIZE_CHAMP	-15
 # define ERROR_PARSING		-16
 
 /*

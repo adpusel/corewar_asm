@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 13:49:15 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 13:17:35 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 19:33:29 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main(int argc, char *argv[])
 	env = &tmp;
 	init_asm(env);
 	if (argc != 2 || !(env->file.src_name = *(++argv)))
-		handle_error(env, ERROR_USAGE);
+		handle_error(env, ERROR_ARG);
 	check_file(env);
 	parse_file(env);
 	treat_file(env);

@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:35:36 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/13 14:28:29 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 19:50:15 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	check_first_line(t_asm *env, t_parser *parser, int *i)
 	check_prefix(env, parser, i);
 	*i += ft_skip_spaces(parser->line + *i);
 	if (parser->line[(*i)++] != QUOTE_CHAR)
-		handle_error(env, ERROR_QUOTE);
+		handle_error(env, ERROR_HEADER);
 }
 
 static void		check_last_line(t_asm *env, int i, int *first)

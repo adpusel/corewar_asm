@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:56:20 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/12 15:57:26 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 19:42:14 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void			parse_file(t_asm *env)
 	}
 	if (env->file.ret < 0)
 		handle_error(env, ERROR_FD);
-	else if (env->parser.step <= ERROR || !env->treat.prog_size)
-		handle_error(env, ERROR_PARSING);
+	else if (!env->treat.prog_size)
+		handle_error(env, ERROR_NOPROG);
 	fill_label(env);
 	fill_header(env);
 	//print_instructions(env);
