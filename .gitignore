@@ -9,6 +9,7 @@ out
 gen
 obj/
 *.o
+*.cor
 *.swp
 *.dSYM
 .idea/

@@ -1,20 +1,28 @@
-//
-// Created by Adrien PUSEL on 8/23/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   function.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/13 20:30:17 by plamusse          #+#    #+#             */
+/*   Updated: 2018/09/13 20:31:19 by plamusse         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef CORWAR_GROUPE_A_FUNCTION_H
-#define CORWAR_GROUPE_A_FUNCTION_H
+#ifndef FUNCTION_H
+# define FUNCTION_H
 
 /*
 **	INIT
 */
-void	init_asm(t_asm *env);
+void			init_asm(t_asm *env);
 
 /*
 **	CHECK_FILE
 */
 
-void	check_file(t_asm *env);
+void			check_file(t_asm *env);
 
 /*
 **	PARSER
@@ -56,12 +64,12 @@ void			print_instruction(t_instr *instr, int i);
 **	FREE
 */
 
-void		free_asm(t_asm *env);
+void			free_asm(t_asm *env);
 
 /*
 **	ERROR
 */
 
-void		handle_error(t_asm *env, int errcode);
+void			handle_error(t_asm *env, int errcode);
 
-#endif //CORWAR_GROUPE_A_FUNCTION_H
+#endif

@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:35:36 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/13 19:50:15 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 20:20:12 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ static void	check_prefix(t_asm *env, t_parser *parser, int *i)
 	int		len;
 
 	len = 0;
-	if (ft_strnequ(
-				parser->line + *i
+	if (ft_strnequ(parser->line + *i
 				, PREFIX_NAME
 				, (len = ft_strlen(PREFIX_NAME)))
 			&& parser->head_help.type != NAME_TYPE)
@@ -27,8 +26,7 @@ static void	check_prefix(t_asm *env, t_parser *parser, int *i)
 		parser->head_help.len_max = PROG_NAME_LENGTH;
 		parser->head_help.cur_str = parser->header.prog_name;
 	}
-	else if (ft_strnequ(
-				parser->line + *i
+	else if (ft_strnequ(parser->line + *i
 				, PREFIX_COMMENT
 				, (len = ft_strlen(PREFIX_COMMENT)))
 			&& parser->head_help.type != COMMENT_TYPE)
@@ -51,13 +49,13 @@ static void	check_first_line(t_asm *env, t_parser *parser, int *i)
 		handle_error(env, ERROR_HEADER);
 }
 
-static void		check_last_line(t_asm *env, int i, int *first)
+static void	check_last_line(t_asm *env, int i, int *first)
 {
 	i += ft_skip_spaces(env->parser.line + i);
 	if ((env->parser.line[i] == '\0' || env->parser.line[i] == COMMENT_CHAR))
 	{
-	   	env->parser.step++;
-		ft_memset((void*)&env->parser.head_help, 0 , sizeof(t_head_help));
+		env->parser.step++;
+		ft_memset((void*)&env->parser.head_help, 0, sizeof(t_head_help));
 		*first = 0;
 	}
 	else

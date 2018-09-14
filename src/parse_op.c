@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 15:55:36 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/12 11:57:37 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 20:21:43 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void		parse_op(t_asm *env, char **line)
 	t_instr	*current_op;
 
 	get_current_op_on_op_tab(env, line);
-	//printf("name=%s\n", env->parser.current_op.op_tab.name);
 	current_op = &env->parser.current_op;
 	current_op->address = env->treat.prog_size;
 	current_op->size = 1;
@@ -48,5 +47,4 @@ void		parse_op(t_asm *env, char **line)
 		current_op->size = 2;
 	else
 		current_op->size = 1;
-
 }

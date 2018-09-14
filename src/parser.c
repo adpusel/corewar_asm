@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/23 12:56:20 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/13 19:42:14 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/14 15:13:32 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ static void		fill_header(t_asm *env)
 {
 	env->parser.header.prog_size = little_endian(env->treat.prog_size);
 	env->parser.header.magic = little_endian(COREWAR_EXEC_MAGIC);
-
 }
+
 void			parse_file(t_asm *env)
 {
-	char	*tmp ;
+	char	*tmp;
 
-	while ((env->file.ret = get_next_line(env->file.fd, &(env->parser.line))) > 0)
+	while ((env->file.ret = get_next_line(env->file.fd, &(env->parser.line)))
+			> 0)
 	{
 		env->parser.index.line++;
 		tmp = env->parser.line;
@@ -41,8 +42,5 @@ void			parse_file(t_asm *env)
 		handle_error(env, ERROR_NOPROG);
 	fill_label(env);
 	fill_header(env);
-	//print_instructions(env);
-	//printf("prog_size=%i\n", env->treat.prog_size);
-	//printf("name=%s\n", env->parser.header.prog_name);
-	//printf("comment=%s\n", env->parser.header.comment);
+	ft_memset((void*)&env->parser.current_op, 0, sizeof(t_instr));
 }

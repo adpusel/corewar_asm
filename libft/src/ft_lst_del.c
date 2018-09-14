@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 11:26:24 by plamusse          #+#    #+#             */
-/*   Updated: 2018/04/25 17:44:22 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/14 13:22:27 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_lst_del(t_list **alst, void (*del)(void *, size_t))
 		del(elem->content, elem->content_size);
 		elem->content_size = 0;
 		elem = elem->next;
-		free(tmp);
+		ft_memdel((void**)&tmp);
 	}
 	*alst = NULL;
 }

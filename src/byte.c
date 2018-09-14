@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 12:24:26 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/08 12:34:53 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/13 20:01:46 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int32_t		little_endian(int32_t big)
 	int32_t		num;
 
 	num = big;
-	little = ((num>>24)&0xff)
-		| ((num<<8)&0xff0000)
-		| ((num>>8)&0xff00)
-		| ((num<<24)&0xff000000);
+	little = ((num >> 24) & 0xff)
+		| ((num << 8) & 0xff0000)
+		| ((num >> 8) & 0xff00)
+		| ((num << 24) & 0xff000000);
 	return (little);
 }

@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 16:15:50 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/11 16:14:40 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/14 15:38:28 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ static void	put_value(char *champ, t_param *param, int *i_champ)
 	i = 0;
 	size = param->size;
 	while (size--)
-		champ[*i_champ + size] = param->val_tab[i++];
+		champ[*i_champ + size] = param->value.val_tab[i++];
 }
 
-static void	put_params(char *champ, t_instr *instr, t_param *param, int *i_champ)
+static void	put_params(
+		char *champ, t_instr *instr, t_param *param, int *i_champ)
 {
 	int		i_param;
 
@@ -35,6 +36,7 @@ static void	put_params(char *champ, t_instr *instr, t_param *param, int *i_champ
 		*i_champ += param->size;
 	}
 }
+
 static void	translate_to_bytecode(t_asm *env)
 {
 	t_list	*op_list;

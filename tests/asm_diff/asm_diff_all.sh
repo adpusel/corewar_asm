@@ -3,7 +3,7 @@
 #paths
 
 ASM="/Users/plamusse/Lab/corewar/asm"
-FT_ASM="/Users/plamusse/Lab/corewar/ft_asm"
+FT_ASM="/Users/plamusse/Lab/corewar/tests/asm_diff/asm_zaz"
 
 COR_HEX="/Users/plamusse/Lab/corewar/tests/asm_diff/mycor.hex"
 FT_COR_HEX="/Users/plamusse/Lab/corewar/tests/asm_diff/cor.hex"

@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/22 13:49:15 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/13 19:33:29 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/14 15:17:07 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		main(int argc, char *argv[])
 	check_file(env);
 	parse_file(env);
 	treat_file(env);
-	printf("Writing output program to %s\n", env->file.dst_name); // ft_printf
+	ft_putendl_fd("Writing output program to cor file", 1);
 	free_asm(env);
 	return (0);
 }

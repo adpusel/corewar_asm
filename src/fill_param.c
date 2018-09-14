@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 14:44:26 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/13 19:31:55 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/14 13:55:11 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ static void	parse_param_value(t_asm *env, char **line, t_param *param, int type)
 	value = ft_atoll(*line);
 	if ((type & T_REG) && (value < 0 || value > REG_NUMBER))
 		handle_error(env, ERROR_REG);
-	param->value = value;
-//	printf("value=%lli\n", param->value);
+	param->value.val = value;
 	if (**line == '-')
 		++(*line);
 	while (ft_isdigit(**line))
@@ -69,9 +68,8 @@ static void	fill_param_size(t_asm *env, t_param *param, int type)
 	}
 }
 
-void	fill_param(t_asm *env, char **line, t_param *param, int type)
+void		fill_param(t_asm *env, char **line, t_param *param, int type)
 {
-//	printf("type=%i\n", param->type);
 	if ((type & T_REG) || (type & T_DIR))
 		++(*line);
 	if (**line == LABEL_CHAR && ((type & T_DIR) || (type & T_IND)))

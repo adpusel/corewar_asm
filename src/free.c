@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 15:30:13 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/13 19:11:41 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/14 15:17:08 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static void	free_op_list(t_asm *env)
 	}
 	ft_lst_del(&(env->treat.op_list), &ft_lst_memclr);
 }
+
 static void	free_current_op(t_instr *instr)
 {
 	t_param	*param;
@@ -61,26 +62,27 @@ static void	free_current_op(t_instr *instr)
 		ft_memdel((void**)&(param->label));
 		i++;
 	}
-
 }
+
 static void	free_gnl(t_asm *env)
 {
 	ft_memdel((void**)&(env->parser.line));
 	if (env->file.ret > 0)
 	{
-		while ((env->file.ret = get_next_line(env->file.fd, &(env->parser.line))) > 0)
+		while ((env->file.ret =
+					get_next_line(env->file.fd, &(env->parser.line))) > 0)
 			ft_memdel((void**)&(env->parser.line));
 		if (env->file.ret < 0)
 			handle_error(env, ERROR_FD);
 	}
 }
 
-void	free_asm(t_asm *env)
+void		free_asm(t_asm *env)
 {
 	free_gnl(env);
 	ft_memdel((void**)&(env->treat.champ));
 	ft_memdel((void**)&(env->file.dst_name));
 	free_current_op(&env->parser.current_op);
-	free_op_list(env);
+  	free_op_list(env);
 	free_label_list(env);
 }

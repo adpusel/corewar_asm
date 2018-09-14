@@ -6,7 +6,7 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 13:42:48 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/12 12:11:13 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/14 13:55:21 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ static void	fill_label_value(t_asm *env, t_instr *cur, t_param *param)
 	while (label_list)
 	{
 		match = ((t_label*)(label_list->content));
-		//printf("match_name=%s\n", match->name);
 		if (match->name)
 		{
 			if (ft_strequ(param->label, match->name))
 			{
-				param->value = match->address - cur->address;
+				param->value.val = match->address - cur->address;
 				return ;
 			}
 		}
@@ -51,10 +50,7 @@ void		fill_label(t_asm *env)
 		{
 			param = &cur->param[i];
 			if (param->label)
-			{
-//				printf("label_name=%s\n", param->label);
 				fill_label_value(env, cur, param);
-			}
 			i++;
 		}
 		op_list = op_list->next;

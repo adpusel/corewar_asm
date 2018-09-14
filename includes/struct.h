@@ -6,20 +6,19 @@
 /*   By: plamusse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:01:22 by plamusse          #+#    #+#             */
-/*   Updated: 2018/09/13 15:44:14 by plamusse         ###   ########.fr       */
+/*   Updated: 2018/09/14 13:51:00 by plamusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COREWAR_STRUCT_H
-#define COREWAR_STRUCT_H
+#ifndef STRUCT_H
+# define STRUCT_H
 
-#include <stddef.h>
-#include "asm.h"
+# include "asm.h"
 
 typedef struct	s_op
 {
-	char 	*name;
-	int 	nb_param;
+	char	*name;
+	int		nb_param;
 	int		param[3];
 	int		op_code;
 	int		cycle;
@@ -28,68 +27,68 @@ typedef struct	s_op
 	int		direct_size;
 }				t_op;
 
-
-typedef struct		s_label
+typedef struct	s_label
 {
-	char		*name;//
-	int			address;
+	char	*name;
+	int		address;
+}				t_label;
 
-}					t_label;
-
-typedef struct		s_treat
+typedef struct	s_treat
 {
-	char		*champ;
-	int			prog_size;
-	t_list		*op_list; //?
-	t_list		*label_list;//
-}					t_treat;
+	char	*champ;
+	int		prog_size;
+	t_list	*op_list;
+	t_list	*label_list;
+}				t_treat;
+
+typedef union	u_value
+{
+	int32_t	val;
+	char	val_tab[4];
+}				t_value;
 
 typedef struct	s_param
 {
-	int32_t		address;
-	int32_t		size;
-	union
-	{
-		int32_t		value;
-		char		val_tab[4];
-	};
-		char		*label;//?
-	unsigned char		type;
+	int32_t			address;
+	int32_t			size;
+	t_value			value;
+	char			*label;
+	unsigned char	type;
 }				t_param;
 
 typedef struct	s_instr
 {
 	int32_t			address;
-	unsigned char 	ocp;
+	unsigned char	ocp;
 	int32_t			size;
 	t_param			param[3];
 	t_op			op_tab;
-} 				t_instr;
+}				t_instr;
 
-typedef struct		s_index
+typedef struct	s_index
 {
-	int			line;
-	int			character;
-}					t_index;
+	int	line;
+	int	character;
+}				t_index;
 
-typedef struct		s_head_help
+typedef struct	s_head_help
 {
-	int			type;
-	int			i;
-	int			size;
-	int			len_max;
-	char		*cur_str;//?
-}					t_head_help;
+	int		type;
+	int		i;
+	int		size;
+	int		len_max;
+	char	*cur_str;
+}				t_head_help;
 
-typedef struct		s_header
+typedef struct	s_header
 {
-	unsigned int		magic;
+	unsigned int	magic;
 	char			prog_name[PROG_NAME_LENGTH + 1];
-	unsigned int		prog_size;
+	unsigned int	prog_size;
 	char			comment[COMMENT_LENGTH + 1];
-}					t_header;
+}				t_header;
 
-typedef struct		s_parser
+typedef struct	s_parser
 {
 	t_header	header;
 	t_head_help	head_help;
@@ -97,21 +96,21 @@ typedef struct		s_parser
 	t_index		index;
 	int			step;
 	t_instr		current_op;
-}					t_parser;
+}				t_parser;
 
-typedef struct		s_file
+typedef struct	s_file
 {
-	int			fd;
-	int			ret;
-	char		*src_name;
-	char		*dst_name;
-}					t_file;
+	int		fd;
+	int		ret;
+	char	*src_name;
+	char	*dst_name;
+}				t_file;
 
-typedef struct		s_asm
+typedef struct	s_asm
 {
 	t_file		file;
 	t_parser	parser;
 	t_treat		treat;
-}					t_asm;
+}				t_asm;
 
 #endif
